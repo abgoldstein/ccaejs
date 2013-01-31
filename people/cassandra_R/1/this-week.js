@@ -1,12 +1,15 @@
 // Exercise 1.1.1 - Fix me!
-alert(Hello, World!);
+alert("Hello, World!");
 
 // Exercise 1.1.2 - Alert anything else
 
+alert("anything else!");
 
 // Exercise 1.2.1 - Create a new variable that is the sum of a and b. Alert it to the user.
 var a = 10;
 var b = 56;
+var sumAB = a + b;
+alert (sumAB);
 
 
 // Exercise 1.2.2 - Try joining these strings together with a +. Alert it to the user.
