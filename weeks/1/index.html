@@ -158,7 +158,6 @@
     </section>
     <section class="slide">
       <h2>Eating our own dog food</h2>
-      
       <ul>
         <li>This entire course is self contained. These slides, <a href="../../notes/index.html">notes</a>, supporting code, and <a href="../../people/index.html">your own answers</a> will be part of one project</li>
         <li>
@@ -172,11 +171,186 @@
       </ul>
     </section>
 
+    <section class="slide">
+      <h2>OSX Basics - Just turn the thing on</h2>
+      <ul>
+        <li>In case the machines aren't on ahead of time, the power button is in the back</li>
+        <li>You can log on/off using the Apple logo in the top left hand of your screen</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>OSX Basics - Application Equivalence</h2>
+      <ul>
+        <li>Finder is like Explorer in Windows or Nautilus (et. al.) in Linux</li>
+        <li>Terminal is like DOS in Windows or the Terminal in Linux</li>
+        <li>Spotlight is like the Start bar in Windows 7 or Gnome Do in Linux</li>
+        <li>Our text editor for the course will be Sublime Text 2</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>OSX Basics - Hotkeys</h2>
+      <p>
+        Cmd here mean the Command key. It may be labeled on your keyboard as just the Apple logo. Or if you are using a keyboard intended for Windows, the Command key is the Windows key.
+      </p>
+      <ul>
+        <li>Copy - Cmd + C</li>
+        <li>Paste - Cmd + V</li>
+        <li>New Directory - Cmd + Shift + N</li>
+        <li>Switch Applications - Cmd + Tab</li>
+        <li>Switch Between Application Windows - Cmd + ~</li>
+        <li>Opening Spotlight - Cmd + Space</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Using the Terminal</h2>
+      <p>
+        The terminal can be opened by hitting Cmd + Space to open Spotlight and then typing Terminal. The first result will be Terminal.app, so you can hit enter to open the application. These are some basic commands:
+      </p>
+      <ul>
+        <li>List files - ls</li>
+        <li>Change directories - cd [destination]</li>
+        <li>Show current directory - pwd</li>
+        <li>Copy - cp [source] [destination]</li>
+        <li>Move - mv [source] [destination]</li>
+        <li>Delete - rm [file]</li>
+        <li>Delete directory - rm -r [directory]</li>
+        <li>Make directory - mkdir [name]</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using the Terminal - A quick exercise</h2>
+      <p>Let's put those commands to work. We're going to make a directory to save your projects</p>
+
+      <ol>
+        <li>Navigate to your home directory - <code>cd ~</code></li>
+        <li>Make a new directory for code. Let's call it "workspace" - <code>mkdir workspace</code></li>
+        <li>Navigate into that directory - <code>cd workspace</code></li>
+      </ol>
+
+      <pre>To make your life easier, try using tab as you type file names. The terminal will auto-complete filenames and commands to the best of its ability. <strong>Try it!</strong> Navigate back to your home directory, type <code>cd w</code> and then hit tab. It's a sanity saver!</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Using git - An explanation</h2>
+      <ul>
+        <li>git is a source code management tool. It's similar to SVN, CVS, etc.</li>
+        <li>Source control allows you to store all the files you have for a project and track your changes over time</li>
+        <li>If you make a mistake, you can always go back to an earlier state</li>
+        <li>This entire class is managed by source control, so don't be afraid to play around</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using git - Github</h2>
+      <ul>
+        <li>Github is a web interface to manage projects with git.</li>
+        <li>Go and make an account there. This is <a href="https://www.github.com/abgoldstein">me</a></li>
+        <li>An easy way to collaborate on a project is to fork a project from another user</li>
+        <li>Go and do exactly that. Now that you are logged in, go to our <a href="https://www.github.com/abgoldstein/ccaejs">class project</a>. Click on the fork button in the top right</li>
+        <li>You now own the class project. While you're not allow to save changes in my version, you can save as much as you want to yours. We can also take changes from each other. We'll revisit this at the end of class.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using git - Getting stuff from me</h2>
+      <ul>
+        <li>To get the project on your computer, first go back to my version of <a href="https://www.github.com/abgoldstein/ccaejs">ccaejs</a></li>
+        <li>Copy the address that looks like https://github.com/abgoldstein/ccaejs.git</li>
+        <li>Return to the terminal. It should be at ~/workspace from earlier</li>
+        <li>Write <code>git clone https://github.com/abgoldstein/ccaejs.git</code></li>
+        <li>You will now have a copy of the project at ~/workspace/ccaejs</li>
+        <li>If you want, you can follow along with these slides locally instead of online. It's the exact same thing.</li>
+      </ul>
+    </section>
+
+
+    <!-- Development Environment -->
+    <section class="slide">
+      <h2>Development Environment - Text Editor</h2>
+      <p>
+        For this class we're going to be using <a href="http://www.sublimetext.com/2">Sublime Text 2</a> as our text editor. We won't be using any sort of IDE, but feel free to use any other text editor you might prefer.
+      </p>
+      <ul>
+        <li>You can open Sublime via Spotlight</li>
+        <li>You can also open in via the Terminal using the command subl - <code>subl ~/workspace/ccaejs</code>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Development Environment - The debugger</h2>
+      <p>
+        All of our JavaScript is going to run in the browser, so to debug we can use built in browser tools. For example, we'll look at how to open the debugger in Chrome. The process is similar for other browsers.
+      </p>
+      <ul>
+        <li>Open Chrome</li>
+        <li>Click on the icon in the top right of the browser labeled with three horizontal lines</li>
+        <li>Hover over Tools, and then click on JavaScript Console</li>
+        <li>Right click in the console and select Clear to clear the output</li>
+        <li>This tool will be invaluable to you while learning JavaScript</li>
+      </ul>
+    </section>
+
+
+    <!-- Alerts -->
+    <section class="slide">
+      <h2>At long last - Hello, world!</h2>
+      <p>In JavaScript we'll show output to the user via the <strong>alert()</strong> command.</p>
+      <ul>
+        <li>alert is a function that takes one parameter - The message to display</li>
+        <li>For example, <code>alert("Hello, world!");</code></li>
+        <li>Right now, we're displaying a String, hence the quotes "". We'll discuss this soon.</li>
+        <li>Your message can be any text as long as it is inside the quotes, inside of the parentheses and ends with a semi-colon</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Alerts - First exercises</h2>
+      <ul>
+        <li>Create a directory for yourself in the ccaejs/people directory</li>
+        <li>Copy the directory ccaejs/weeks/1 to your newly created directory</li>
+        <li>Open the entire project with Sublime and open the files contained in ccaejs/people/your-dir/1</li>
+        <li>Open ccaejs/people/your-dir/1/this-week.html in the browser</li>
+        <li>Your exercises are marked in comments in this-week.js as 1.1.x. You can complete the work in that file and see the results back in this-week.html.</li>
+        <li>If you're stuck, ask a neighbor or check the answers in my people directory, ccaejs/people/adam</li>
+      </ul>
+    </section>
+
+
+    <!-- Variables -->
+    <section class="slide">
+      <h2>Variables - Types</h2>
+      <p>JavaScript is a loosely typed language. You do have these types:</p>
+      <ul>
+        <li>Strings - Stuff inside of quotes "" or single quotes ''</li>
+        <li>Numbers - Any number. 1, 2, 3.14, and 10e9 are all valid</li>
+        <li>Booleans - true or false</li>
+        <li>Arrays - Lists []</li>
+        <li>Objects - {}</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Variables - var</h2>
+      <p>The var keyword is special and pertains to scope. We'll address it later. For now, rules of thumb:</p>
+      <ul>
+        <li>The first time you define a variable, write it as <code>var x = 2</code></li>
+        <li>When redefining a variable that has been made before, write it as <code>x = "I'm a string now"</code></li>
+      </ul>
+      <pre><strong>Note:</strong> Variables are dynamic in JavaScript. In the above example, x started as a number and then we redefined it as a String</pre>
+    </section>
+
 
     <!-- Closing discussion -->
     <section class="slide">
       <h1>Week 1 - Wrapping up</h1>
     </section>
+
+    <section class="slide">
+      <h2>Using git - Getting stuff to me</h2>
+      <ul>
+        <li>We'll walk through this together</li>
+      </ul>
+    </section>
+
     <section class="slide">
       <h2>Checking in</h2>
       <p>How did this first session feel?</p>
@@ -198,6 +372,10 @@
         <li>Visit the project's <a href="https://www.github.com/abgoldstein/ccaejs">github page</a> and file an issue. Label it as a question.</li>
       </ul>
       <p>If you have more to say and would prefer to do so privately, or if you just think of something later on, send me an e-mail at abgoldstein@gmail.com</p>
+    </section>
+    <section class="slide">
+      <h2>Thanks for coming!</h2>
+      <p>See you next week!</p>
     </section>
 
 
