@@ -59,6 +59,13 @@
 @import "sass-bootstrap/carousel";
 @import "sass-bootstrap/hero-unit";
 
+// Responsiveness
+@import "sass-bootstrap/responsive-1200px-min";
+@import "sass-bootstrap/responsive-767px-max";
+@import "sass-bootstrap/responsive-768px-979px";
+@import "sass-bootstrap/responsive-navbar";
+@import "sass-bootstrap/responsive-utilities";
+
 // Utility classes
 @import "sass-bootstrap/utilities"; 
 

@@ -9,11 +9,15 @@
 
     <link href="../assets/stylesheets/ccaejs.css" rel="stylesheet">
     <link href="../assets/stylesheets/notes.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
     <script src="../assets/javascripts/jquery/jquery.min.js"></script>
     <script src="../assets/javascripts/bootstrap/bootstrap-affix.js"></script>
     <script src="../assets/javascripts/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="../assets/javascripts/bootstrap/bootstrap-collapse.js"></script>
     <script src="../assets/javascripts/ccaejs/sidebar.js"></script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../assets/javascripts/ccaejs/notes.js"></script>
 
     <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -35,7 +39,11 @@
             <li><a href="#alerts"><i class="icon-chevron-right"></i> Alerts</a></li>
             <li><a href="#variables"><i class="icon-chevron-right"></i> Variables</a></li>
             <li><a href="#conditionals"><i class="icon-chevron-right"></i> Conditionals</a></li>
+            <li><a href="#math"><i class="icon-chevron-right"></i> Math</a></li>
+            <li><a href="#arrays"><i class="icon-chevron-right"></i> Arrays</a></li>
             <li><a href="#loops"><i class="icon-chevron-right"></i> Loops</a></li>
+            <li><a href="#functions"><i class="icon-chevron-right"></i> Functions</a></li>
+            <li><a href="#hashes"><i class="icon-chevron-right"></i> Hashes</a></li>
           </ul>
         </div>
 
@@ -53,6 +61,7 @@
               <li>Clone the class project <a href="https://www.github.com/abgoldstein/ccaejs">ccaejs</a></li>
               <li>Explore the basic tools and workflow we'll be using</li>
             </ul>
+            
 
             <h2>Basic understanding of programming</h2>
             <ul>
@@ -161,9 +170,72 @@
               <h1>Using Git</h1>
             </div>
 
-            <ul>
+            <div class="accordion" id="git-accordion">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#git-accordian" href="#collapseOne">
+                    Download the project
+                  </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    Go to the CCAEJS project on <a href="https://www.github.com/abgoldstein/ccaejs">github</a>. Copy the 
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#git-accordian" href="#collapseTwo">
+                    Update the project
+                  </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    This is how you update
+                  </div>
+                </div>
+              </div>
 
-            </ul>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#git-accordian" href="#collapseThree">
+                    Fork the project
+                  </a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    This is how you fork
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#git-accordian" href="#collapseFour">
+                    Save changes
+                  </a>
+                </div>
+                <div id="collapseFour" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    This is how you save
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#git-accordian" href="#collapseFive">
+                    How the sausage is made
+                  </a>
+                </div>
+                <div id="collapseFive" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    And then I merge everything
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <h2>Get the stuff</h2>
             <p>
@@ -201,9 +273,7 @@
             </div>
 
             <h2>Stuff about variables</h2>
-            <p>
-              Bloppity bleep bloop.
-            </p>
+
           </section>
 
           <section id="conditionals">
@@ -211,7 +281,90 @@
               <h1>Conditionals</h1>
             </div>
 
-            <h2>Stuff about conditionals</h2>
+            <h2>Basic syntax</h2>
+<pre class="prettyprint linenums">
+// Basic syntax
+if (condition) {
+  doSomething();
+} else if (otherCondition) {
+  doSomethingElse();
+} else {
+  fallBack();
+}</pre>
+
+            <h2>Comparison Operators</h2>
+<pre class="prettyprint linenums">
+// Equality and inequality
+if ("hello" == "hi")      // False
+if ("hello" != "hi")      // True
+
+if (1 == 1)               // True
+if (1 != 1)               // False
+
+if (1 == "1")             // True
+if (1 != "1")             // False
+
+
+// Exact equality and inequality
+if (1 === "1")            // False
+if (1 !== "1")            // True
+
+if (1 === 1)              // True
+if (1 !== 1)              // False
+
+if ("hello" === "hello")  // True
+if ("hello" !== "hello")  // False
+
+
+// Greater and less than
+if (2 < 4)                // True
+if (2 > 4)                // False
+
+if (2 >= 2)               // True
+if (2 <= 2)               // True
+</pre>
+
+            <h2>Logical Operators</h2>
+<pre class="prettyprint linenums">
+// AND
+if (age > 12 && age < 20) {
+  alert("You are a teenager.");
+}
+
+// OR
+if (myFood == "apple" || myFood == "orange") {
+  alert("This is maybe a fruit. I should have created a more exhaustive list, perhaps.")
+}
+
+// NOT
+if (!true) {
+  // That's the same as false. We'll never get here.
+}
+
+// All together now
+if ((this || that) && !(here || there))
+</pre>
+
+            <p>For extra practice, check out JavaScript conditionals over at <a href="http://www.codecademy.com/courses/conditionals-in-javascript">CodeAcademy</a>.</p>
+          </section>
+
+          <section id="math">
+            <div class="page-header">
+              <h1>Math</h1>
+            </div>
+
+            <h2>Stuff about math</h2>
+            <p>
+              Bloppity bleep bloop.
+            </p>
+          </section>
+
+          <section id="arrays">
+            <div class="page-header">
+              <h1>Arrays</h1>
+            </div>
+
+            <h2>Stuff about arrays</h2>
             <p>
               Bloppity bleep bloop.
             </p>
@@ -223,6 +376,28 @@
             </div>
 
             <h2>Stuff about loops</h2>
+            <p>
+              Bloppity bleep bloop.
+            </p>
+          </section>
+
+          <section id="functions">
+            <div class="page-header">
+              <h1>Functions</h1>
+            </div>
+
+            <h2>Stuff about functions</h2>
+            <p>
+              Bloppity bleep bloop.
+            </p>
+          </section>
+
+          <section id="hashes">
+            <div class="page-header">
+              <h1>Hashes</h1>
+            </div>
+
+            <h2>Stuff about hashes</h2>
             <p>
               Bloppity bleep bloop.
             </p>
