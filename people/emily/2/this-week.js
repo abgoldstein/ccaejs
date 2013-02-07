@@ -1,36 +1,60 @@
 // Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
-var name = prompt("What is your name?");
-alert("Welcome, " + name + "!");
+
 
 // 2.1 - Conditionals
 // Exercise 2.1.1 - Ask the user for 2 numbers. Tell them if the first or second number was bigger.
-var firstNumber = prompt("Gimmie a number");
-var secondNumber = prompt("Gimmie a second number");
-if (firstNumber > secondNumber)
-	alert("First is greater than second!");
-else if (firstNumber < secondNumber)
-	alert("Second is greater than first!");
-else
-	alert("They're equal.")
+/*
+var1 = prompt("Please enter a number");
+var2 = prompt("Please enter a different number");
+
+if (var1 > var2) {
+	alert("The first number was greater");	
+}
+else if (var1 == var2) {
+	alert("The numbers are the same")
+}
+else {
+	alert("The second number was greater");
+}
+
 
 // Exercise 2.1.2 - Ask the user for a number. Tell the user whether it is odd or even.
-var number = prompt("Gimmie a number");
-if (number % 2 == 0)
-	alert("That number is even")
-else
-	alert("That number is odd");
+var3 = prompt("Please enter a number");
+
+if (var3%2 == 0) {
+	alert("Your Number was even");
+}
+else if (var3%2 == 1){
+	alert("Your number was odd");
+}
+else {
+	alert("Invalid input");
+}
+
+*/
 
 // Exercise 2.1.3 - Ask the user what month they were born in. Tell them what season that month is in.
-var month = prompt("What month were you born in?");
-if (month == "December" || month == "January" || month == "February" || month == "March") {
-	alert("Brrr, that's winter!");
-} else if (month == "April" || month == "May" || month == "June") {
-	alert("That's spring, maybe?");
-} else if (month == "July" || month == "August" || month == "September") {
-	alert("That's summer! Except September, I think.");
-} else {
-	alert("That's Fall! The best month.");
+month = prompt("What month were you born in? Please enter in uppercase.");
+//make month into uppercase
+// not sure how yet
+//month = toUpperCase(month);
+
+if (month in ("DECEMBER", "JANUARY", "FEBRUARY", "MARCH")) {
+	alert ("You were born in the winter.");
 }
+else if (month in ("APRIL", 'MAY', "JUNE") ) {
+	alert("You were born in the spring.");
+}
+else if (month in ("JULY", "AUGUST")) {
+	alert("You were born in the summer.")
+}
+else if (month in ("SEPTEMBER", 'OCTOBER', "NOVEMBER")) {
+	alert("You were born in the fall");
+}
+else {
+	alert('This month was not recognized');
+}
+
 
 
 // 2.2 - Loops
