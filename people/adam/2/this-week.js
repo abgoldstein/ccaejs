@@ -9,7 +9,7 @@ var secondNumber = prompt("Gimmie a second number");
 if (firstNumber > secondNumber)
 	alert("First is greater than second!");
 else if (firstNumber < secondNumber)
-	alert("Second is great than first!");
+	alert("Second is greater than first!");
 else
 	alert("They're equal.")
 
