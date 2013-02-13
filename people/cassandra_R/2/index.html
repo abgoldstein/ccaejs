@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 2 - Basic syntax">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 2 -->
+    <section class="slide">
+      <h1>Week 2 - Getting our hands dirty</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Today's agenda</h2>
+      <ul>
+        <li>The site is still pretty ugly. Sorry.</li>
+        <li><a href="../../notes/index.html">Notes</a> have been updated!</li>
+        <li>
+          This week we're going to:
+          <ul>
+            <li>Finish the git workflow</li>
+            <li>Fly through notes on conditionals, loops, and arrays</li>
+            <li>Spend at least half the class just programming</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Any thoughts?</h2>
+      <p>Before diving in, any new or old business?</p>
+    </section>
+
+    <!-- Working on git -->
+    <section class="slide">
+      <h2>git</h2>
+      <ul>
+        <li>The notes on git are more fleshed out now. I'm mostly copying them here</li>
+        <li>
+          The pattern is this:
+          <ul>
+            <li>Clone the project</li>
+            <li>Pull any updates (Every time)</li>
+            <li>Fork the project</li>
+            <li>Push your changes (Every time)</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Clone the project</h2>
+      <ol>
+        <li>
+          Go to the CCAEJS project on <a href="https://www.github.com/abgoldstein/ccaejs">github</a>. Copy the URL. This is the location of my version of the project.
+        </li>
+        <li>
+          Open the terminal and change directories to the Desktop.
+        </li>
+        <li>
+          Make a new directory and name it after yourself. We'll store all of our files here to keep them separate from the rest of the users at CCAE.
+        </li>
+        <li>
+          Download the ccaejs project by using the git clone command.
+          <img src="../../assets/images/git/git-clone.png" />
+        </li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Pull any updates (Every time!)</h2>
+      <ol>
+        <li>
+          Open the terminal and change directories to your project folder.
+        </li>
+        <li>
+          Do a git pull from the master branch of the original project.
+          <img src="../../assets/images/git/git-pull.png" />
+        </li>
+        <li>
+          You should see a list of all of the recent changes since the last session.
+        </li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Fork the project</h2>
+      <ol>
+        <li>
+          Sign-up/Log-in to GitHub and go to the <a href="https://www.github.com/abgoldstein/ccaejs">ccaejs</a> project.
+        </li>
+        <li>
+          Click on Fork button in the top right.
+        </li>
+        <li>
+          Open the terminal and change directories to your project folder. Add your fork as a remote.
+          <img src="../../assets/images/git/git-fork.png" />
+        </li>
+        <li>
+          Type <code>git remote -v</code>. This shows you all the remotes that you know about. The address we used is the location of your remote, and the name you gave (in this case, shelby), is your nickname for it. Origin is the default name for the original source of the project.
+        </li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Push your changes (Every time!)</h2>
+      <ol>
+        <li>
+          Open the terminal and change directories to the project folder.
+        </li>
+        <li>
+          Do a <code>git add</code> for all the files you want to save. You can do multiple files in one command
+        </li>
+        <li>
+          Do a <code>git commit</code> to package these changes for saving. The <code>-m</code> stands for "message" and it is used to describe the changes you are saving.
+        </li>
+        <li>
+          Try pulling from origin and your own fork to be sure you aren't missing anything.
+        </li>
+        <li>
+          Push your commit up to your own remote. Later, I will merge it into the main project where it will go live. Your username and password here are the ones registered with GitHub.
+        </li>
+        <li>
+          Note: You should not see the "authentication failed" message as is in the photo. I do not have access to save to Shelby's fork, so I'm rejected. You own your own fork, so you should see a success message.
+        </li>
+      </ol>
+    </section>
+
+    <section class="slide">
+      <h2>Push your changes (Every time!) cont.</h2>
+      <img src="../../assets/images/git/git-push.png" />
+    </section>
+
+
+    <!-- Conditionals -->
+    <section class="slide">
+      <h2>Conditionals</h2>
+      <ul>
+        <li>Just about identical to every other language you've ever seen.</li>
+        <li>Uses <code>else if</code>, not elsif</li>
+        <li>Has one unusual notion - Exact equality</li>
+      </ul>
+
+<pre class="prettyprint linenums">
+// Basic syntax
+if (condition) {
+  doSomething();
+} else if (otherCondition) {
+  doSomethingElse();
+} else {
+  fallBack("hello");
+}</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Equality and inequality</h2>
+<pre class="prettyprint linenums">
+if ("hello" == "hi")      // False
+if ("hello" != "hi")      // True
+
+if (1 == 1)               // True
+if (1 != 1)               // False
+
+if (1 == "1")             // True
+if (1 != "1")             // False</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Exact equality and inequality</h2>
+<pre class="prettyprint linenums">
+if (1 === "1")            // False
+if (1 !== "1")            // True
+
+if (1 === 1)              // True
+if (1 !== 1)              // False
+
+if ("hello" === "hello")  // True
+if ("hello" !== "hello")  // False</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Exact equality and inequality</h2>
+<pre class="prettyprint linenums">
+if (2 < 4)                // True
+if (2 > 4)                // False
+
+if (2 >= 2)               // True
+if (2 <= 2)               // True</pre>
+    </section>
+
+
+    <!-- Arrays -->
+    <section class="slide">
+      <h2>Arrays</h2>
+      <ul>
+        <li>Arrays have no type in JavaScript</li>
+        <li>Arrays are of dynamic length</li>
+        <li>Arrays can be added together with basic Math operations</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Array syntax</h2>
+<pre class="prettyprint linenums">
+// Creating an array
+var list = [1, 2, "three"];
+list[4] = "And now there's a fourth element";
+
+// Getting items out of an array (they are 0 indexed)
+alert(list[0]);       // Shows 1
+alert(list[3]);       // Shows "And now there's a fourth element"
+
+// Length of an array
+alert(list.length);   // Alerts 4
+
+// Adding to an array
+list.push("A new item");
+
+// Removing from an array
+list.pop();
+</pre>
+    </section>
+
+    <!-- Loops -->
+    <section class="slide">
+      <h2>Loops</h2>
+      <ul>
+        <li>JavaScript uses C-style loops. There are some extras that we'll get to next week</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>For Loop</h2>
+      
+<pre class="prettyprint linenums">
+for (var i = 0; i < 10; i++) {
+  alert(i);
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>While Loop</h2>
+      
+<pre class="prettyprint linenums">
+while (someCondition) {
+  // Keep on doing this until
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Break and continue</h2>
+<pre class="prettyprint linenums">
+// Break
+while (true) {
+  break; // This would have been an infinite loop but broke tosses us out of it
+}
+
+// Continue
+for (var i = 0; i < 10; i++) {
+  if (i == 2) {
+    continue; // Do nothing at the value of 2. Instead, go to the next iteration of the loop.
+  }
+  alert("The number is " + i);
+}
+</pre>
+    </section>
+
+
+    <!-- Programming -->
+    <section class="slide">
+      <h2>That's enough listening...get to it!</h2>
+
+      <ul>
+        <li>Copy Week 2 in the project to your people folder</li>
+        <li>Open this-week.js and do all of the assignments</li>
+        <li>Try to debug your own issues, then ask a neighbor, then ask me</li>
+        <li>If you finish early, try going to <a href="http://www.codecademy.com/tracks/javascript">CodeAcademy</a></li>
+      </ul>
+    </section>
+
+    <!-- Wrap up -->
+    <section class="slide">
+      <h2>That's it for the week!</h2>
+    
+      <ul>
+        <li>Any questions?</li>
+        <li>
+          "If you haven't yet" homework:
+          <ul>
+            <li>If you haven't yet, please send me an e-mail so I can contact you</li>
+            <li>If you haven't yet, pull down the project at home</li>
+            <li>If you haven't yet, sign up at CodeAcademy. Try at least one of the lessons.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
