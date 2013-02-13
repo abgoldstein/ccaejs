@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 2 - Basic syntax">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 3 -->
+    <section class="slide">
+      <h1>Week 3 - Sharpening and expanding</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <p>
+        To get started, pull down the latest from the ccaeJS project. If you don't quite remember how, remember that you can check the <a href="../../notes/index.html">notes</a>
+      </p>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
