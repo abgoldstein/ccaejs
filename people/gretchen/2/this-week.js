@@ -56,7 +56,7 @@ alert ("Great, you got it! );
 // Ask the user for their name. Check to see if that name is on the list.
 // If the user is on the list, welcome them in. Otherwise, tell them to leave!
 // Bonus: Now that this is working, try Googling for an easier way to do this.
-var UserNames[] = ["Washington", "Adams", "Jefferson", "Lincoln", "Johnson"];
+var UserNames = ["Washington", "Adams", "Jefferson", "Lincoln", "Johnson"];
 var ThisUserName = "";
 prompt( "Hi! What's your name?", ThisUserName );
 for ( var Index in UserNames ) {
