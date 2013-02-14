@@ -80,7 +80,7 @@ else
 var randomNumberArray = [];
 for(i=0; i<=9; i++)
 {
-	randomNumberArray[i].push(Math.floor(Math.random()*100));
+	randomNumberArray.push(Math.floor(Math.random()*100));
 	alert(randomNumberArray[i]);
 }
 
