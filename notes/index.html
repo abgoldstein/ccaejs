@@ -480,6 +480,10 @@ list.push("A new item");
 
 // Removing from an array
 list.pop();
+
+// Find the index of elements
+alert(list.indexOf("three"));   // Returns 2
+alert(list.indexOf("nope"));    // Returns -1 because it is not found
 </pre>
           </section>
 
@@ -489,14 +493,17 @@ list.pop();
             </div>
 
 <pre class="prettyprint linenums">
-// For loop. Counting from 0 to 10.
-for (var i = 0; i < 10; i++) {
+// For loops
+for (var i = 0; i < 10; i++)
   alert(i);
-}
 
-// While loop
-while (someCondition) 
-{
+// For each loops
+var list = ["a", "b", "c"];
+foreach (var index in list)
+  alert(list[index]);
+
+// While loops
+while (someCondition) {
   // Keep on doing this until
 }
 
@@ -520,9 +527,24 @@ for (var i = 0; i < 10; i++) {
               <h1>Functions</h1>
             </div>
 
-            <h2>Stuff about functions</h2>
+            <h2>Declared functions</h2>
             <p>
-              Coming soon!
+              Declared functions are a lot like functions as you'd find in C. A big difference is that you don't define the return type or the types of the parameters because we don't need to. Declared functions are defined <strong>at parse time</strong>.
+            </p>
+<pre class="prettyprint linenums">
+// An exponent declared function
+function exponent(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+            <p>
+              <strong>Note:</strong> there's already a function that does this for you. It's Math.pow(number, power). Check it out!
             </p>
           </section>
 

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Week 2</title>
+    <title>Week 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 2 - Basic syntax">
     <meta name="author" content="Adam B. Goldstein">
@@ -59,6 +59,336 @@
       <p>
         To get started, pull down the latest from the ccaeJS project. If you don't quite remember how, remember that you can check the <a href="../../notes/index.html">notes</a>
       </p>
+    </section>
+
+    <section class="slide">
+      <h2>Thoughts?</h2>
+      <ul>
+        <li>Furious about git?</li>
+        <li>Any struggles during the week?</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Plan for tonight</h2>
+      <ul>
+        <li>Review conditional exercises</li>
+        <li>Arrays and Loops</li>
+        <li>Functions</li>
+      </ul>
+    </section>
+
+
+    <!-- Exercise review -->
+    <section class="slide">
+      <h2>Thoughts?</h2>
+      <p>
+        Any thoughts on the exercises from last week? Anything in particular that was difficult and you'd like to see more of?
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Exercise 2.1.1</h2>
+<pre class="prettyprint linenums">
+// Exercise 2.1.1 - Ask the user for 2 numbers. Tell them if the first or second number was bigger.
+var num1 = prompt("What's the first number?");
+var num2 = prompt("What's the second number?");
+
+if (num1 > num2) {
+  var largerNum = num1;
+  alert(largerNum+" is larger")
+}
+if (num2 > num1) {
+  var largerNum = num2;
+  alert(largerNum+" is larger")
+}
+else {
+  alert("I'm confused");
+}
+</pre>
+
+      <h2>Stuff I really liked</h2>
+      <ul>
+        <li>Great camel case! (thisIs anExampleOf camelCase)</li>
+        <li>Good spacing between clauses (e.g. <code>num1 > num2</code> instead of <code>num1>num1</code>)</li>
+      </ul>
+
+      <h2>Stuff to watch out for</h2>
+      <ul>
+        <li>You can get very different behavior with two <code>ifs</code> than an <code>else if</code></li>
+        <li>Else in this situation probably means equality.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Consider this! (multiple <code>if</code>s vs <code>else if</code>)</h2>
+
+<pre class="prettyprint linenums">
+// Consider this:
+var score = 85;
+if (score < 60)
+  alert("F - You'll get em next time!");
+if (score < 70)
+  alert("D - Let's work on this more together");
+if (score < 80)
+  alert("C - Looks like you're maybe starting to get it");
+if (score < 90)
+  alert("B - I'm really starting to run out of example encouragement");
+if (score < 100)
+  alert("A - Terrific!");
+if (score == 100)
+  alert("Perfect! You are better than a computer");
+else
+  alert("Invalid input.");
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Consider this! (multiple <code>if</code>s vs <code>else if</code>)</h2>
+
+<pre class="prettyprint linenums">
+// Consider this:
+var score = 85;
+if (score < 60)
+  alert("F - You'll get em next time!");
+else if (score < 70)
+  alert("D - Let's work on this more together");
+else if (score < 80)
+  alert("C - Looks like you're maybe starting to get it");
+else if (score < 90)
+  alert("B - I'm really starting to run out of example encouragement");
+else if (score < 100)
+  alert("A - Terrific!");
+else if (score == 100)
+  alert("Perfect! You are better than a computer");
+else
+  alert("Invalid input.");
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Exercise 2.1.2</h2>
+<pre class="prettyprint linenums">
+// Exercise 2.1.2 - Ask the user for a number. Tell the user whether it is odd or even.
+var3 = prompt("Please enter a number");
+
+if (var3%2 == 0) {
+  alert("Your Number was even");
+}
+else if (var3%2 == 1){
+  alert("Your number was odd");
+}
+else {
+  alert("Invalid input");
+}
+</pre>
+
+      <h2>Stuff I really liked</h2>
+      <ul>
+        <li>Checking for invalid input!</li>
+        <li>Commented out previous exercise code</li>
+      </ul>
+
+      <h2>Stuff to watch out for</h2>
+      <ul>
+        <li>(Tough in this exercise, but) Use descriptive variable names. Especially avoid varX since <code>var</code> is reserved</li>
+        <li>Don't be afraid to copy and paste!</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Exercise 2.1.2</h2>
+<pre class="prettyprint linenums">
+// Exercise 2.1.3 - Ask the user what month they were born in. Tell them what season that month is in.
+var birthmonth = prompt("What month were you born in?");
+if (birthmonth == "March" || birthmonth == "April" || birthmonth == "May") {
+  alert("You were born in springtime! Birds are singing.")
+} else if (birthmonth == "June" || birthmonth == "July" || birthmonth == "August") {
+  alert("You were born in the summertime! Sunny days on the Charles river.")
+} else if (birthmonth == "September" || birthmonth == "October" || birthmonth == "November") {
+  alert ("You were born in the autumn! The leaves are turning.") 
+} else {
+  alert ("You were born in winter! Hot chocolate and sitting by the fire.")
+}
+</pre>
+
+      <h2>Stuff I really liked</h2>
+      <ul>
+        <li>Perfect indentation</li>
+        <li>I am a sucker for flavorful messages.</li>
+      </ul>
+
+      <h2>Stuff to watch out for</h2>
+      <ul>
+        <li>Be sure to use semi-colons. JavaScript will let you cheat, but it can hurt sometimes.</li>
+        <li>What about different capitalization? Numeric representation?</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Useful syntax - indexOf</h2>
+<pre class="prettyprint linenums">
+// Creating an array
+var list = ["a", "b", "c"];
+alert(list.indexOf("c"));       // Returns 2
+alert(list.indexOf("nope"));    // Returns -1 because it is not found
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Useful syntax - toUpperCase</h2>
+<pre class="prettyprint linenums">
+var politeWarning = "excuse me, please. i think you might be about to fall off a cliff";
+var seriousWarning = politeWarning.toUpperCase(); // EXCUSE ME, PLEASE
+</pre>
+    </section>
+
+
+    <!-- Arrays -->
+    <section class="slide">
+      <h2>Arrays</h2>
+      <ul>
+        <li>Arrays have no type in JavaScript</li>
+        <li>Arrays are of dynamic length</li>
+        <li>Arrays can be added together with basic Math operations</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Array syntax</h2>
+<pre class="prettyprint linenums">
+// Creating an array
+var list = [1, 2, "three"];
+list[4] = "And now there's a fourth element";
+
+// Getting items out of an array (they are 0 indexed)
+alert(list[0]);       // Shows 1
+alert(list[3]);       // Shows "And now there's a fourth element"
+
+// Length of an array
+alert(list.length);   // Alerts 4
+
+// Adding to an array
+list.push("A new item");
+
+// Removing from an array
+list.pop();
+</pre>
+    </section>
+
+
+    <!-- Loops -->
+    <section class="slide">
+      <h2>Loops</h2>
+      <ul>
+        <li>JavaScript uses C-style loops, plus a couple</li>
+      </ul>
+
+<pre class="prettyprint linenums">
+// For loops
+for (var i = 0; i < 10; i++)
+  alert(i);
+
+// For each loops
+var list = ["a", "b", "c"];
+for (var index in list)
+  alert(list[index]);
+
+// While loops
+while (someCondition) {
+  // Keep on doing this until
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Break and continue</h2>
+<pre class="prettyprint linenums">
+// Break
+while (true) {
+  break; // This would have been an infinite loop but broke tosses us out of it
+}
+
+// Continue
+for (var i = 0; i < 10; i++) {
+  if (i == 2) {
+    continue; // Do nothing at the value of 2. Instead, go to the next iteration of the loop.
+  }
+  alert("The number is " + i);
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve!</h2>
+
+      <ul>
+        <li>Array and loop exercises are in your People folders from week 2.</li>
+        <li>
+          Solving approach:
+          <ol>
+            <li>Try yourself</li>
+            <li>Check the debugger</li>
+            <li>Check the notes</li>
+            <li>Ask a neighbor / the internet</li>
+            <li>Ask me</li>
+          </ol>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- Functions -->
+    <section class="slide">
+      <h2>Functions</h2>
+      <ul>
+        <li>Declared functions are a lot like functions as you'd find in C</li>
+        <li>A big difference is that you don't define the return type or the types of the parameters because we don't need to</li>
+        <li>Declared functions are defined <strong>at parse time</strong></li>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>An example function</h2>
+<pre class="prettyprint linenums">
+// An exponent declared function
+function exponent(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+      <p>
+        <strong>Note:</strong> there's already a function that does this for you. It's Math.pow(number, power). Check it out!
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve again!</h2>
+
+      <ul>
+        <li>Copy Week 3 in the project to your people folder</li>
+        <li>Open this-week.js and do all of the assignments</li>
+        <li>If you finish early, try going to <a href="http://www.codecademy.com/tracks/javascript">CodeAcademy</a></li>
+      </ul>
+    </section>
+
+
+    <!-- Wrap up -->
+    <section class="slide">
+      <h2>That's it for the week!</h2>
+    
+      <ul>
+        <li>Any questions?</li>
+        <li>If you still haven't e-mailed me, please do</li>
+        <li>Send me at least one long project idea</li>
+        <li>If you haven't signed up on CodeAcademy yet, give it a shot.</li>
+        <li><strong>Coming next time:</strong> Hashes and anonymous functions - A prelude to jQuery</li>
+      </ul>
     </section>
 
 
