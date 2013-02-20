@@ -15,6 +15,8 @@ alert (sumAB);
 // Exercise 1.2.2 - Try joining these strings together with a +. Alert it to the user.
 var message = "Hello";
 var message2 = ", World!";
+var joined = message + message2;
+alert (joined);
 
 
 // Exercise 1.2.3 - Prompt allows you to get input from the user. Given the username, alert a personalized message.
