@@ -96,8 +96,6 @@ while (true)
 	else alert("Invalid input");
 	}
 
-*/
-
 // 2.3 - Arrays
 // Create an array of usernames. They can be anything.
 // Ask the user for their name. Check to see if that name is on the list.
@@ -122,13 +120,80 @@ for (var index in validUsers)
 if (success ==='N')
 	alert("You are not authorized");
 
-
+*/
 
 // Exercise 2.3.2
 // Generate 10 random numbers and show them all to the user.
 // Ask the user for the index of the biggest number. Tell them whether or not they were right.
 
+randomArray = [];
+counter = 1;
+
+while (counter <= 10) {
+var randomNumber=Math.floor(Math.random()*100);
+randomArray.push(randomNumber);
+counter += 1
+}
+
+var userInput = prompt('What is the index of the largest number here? ' + randomArray);
+
+var maxValue = 0;
+var maxIndex = -1;
+
+
+for (var index in randomArray){
+	if (randomArray[index] > maxValue)
+		{maxValue = randomArray[index];
+			//alert(maxValue);
+		maxIndex = index;
+		//alert(maxIndex);
+		}
+
+	}
+
+
+//alert(maxIndex);
+
+if (userInput == maxIndex) {
+	alert('You are correct.');
+	}
+	else{
+	alert('You are wrong.');
+	}
+//end if
+
 
 // Exercise 2.3.3 - Modify your code from exercise 2.2.3 to allow the user to replay.
 // Add a scoreboard array to keep track of how many guesses it took them to win.
 // Show the user the scoreboard each time and congratulate them if they beat their best.
+
+// Exercise 2.2.3
+// Generate a random number (I haven't told you how to do this. Try Googling for it)
+// Ask the user to try to guess the number (Give them the possible range)
+// Tell the user if they got the number or if they were too high or too low.
+// Let the user continue guessing until they get to the right answer.
+
+
+
+var randomNumber=Math.floor(Math.random()*11);
+var numberGuesses = 1;
+
+while (true)
+	{	
+	userGuess = prompt("Guess a number from 0 to 10");
+	if (userGuess < randomNumber)
+		alert("Your number was  too low. Please guess again");
+		numberGuesses += 1;
+	else if (userGuess > randomNumber) 
+		{alert("Your number was  too high. Please guess again");
+		numberGuesses += 1;
+		}
+	else if (userGuess = randomNumber)
+		{alert("You are correct! You took " + numberGuesses + "guesses");
+		break;
+		}
+	else alert("Invalid input");
+	}
+
+
+
