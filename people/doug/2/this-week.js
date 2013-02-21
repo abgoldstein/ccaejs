@@ -1,3 +1,5 @@
+/*
+
 // Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
 var username = prompt("What is your name?");
 alert("Thanks! Good to meet you, " + username + "!");
@@ -51,13 +53,18 @@ for (var i=10;i<=20;i++)
 	alert(sum);
 }
 
+
+
 // Exercise 2.2.3
 // Generate a random number (I haven't told you how to do this. Try Googling for it)
 // Ask the user to try to guess the number (Give them the possible range)
 // Tell the user if they got the number or if they were too high or too low.
 // Let the user continue guessing until they get to the right answer.
-var myrandom=Math.random*10;
-boolean notyet=true;
+var myrandom=Math.floor(Math.random()*10);
+
+alert("myrandom = " + myrandom);
+
+var notyet=true;
 var myguess=0;
 while (notyet==true){
 	myguess=prompt("Enter a number between 0 and 10");
@@ -80,10 +87,55 @@ while (notyet==true){
 // If the user is on the list, welcome them in. Otherwise, tell them to leave!
 // Bonus: Now that this is working, try Googling for an easier way to do this.
 
+var myNamesArray = ["Doug", "Tom", "Sally"];
+var myName = prompt("Hi, what's your name?");
+var wasFound = false;
+for (i=0; i<myNamesArray.length; i++){
+	if (myName == myNamesArray[i]){
+		wasFound = true;
+		break;
+	}
+}
+
+if (wasFound == true){
+	alert("Welcome aboard " + myName);
+}
+else
+	alert("Sorry you gotta leave, " + myName);
+*/
 
 // Exercise 2.3.2
 // Generate 10 random numbers and show them all to the user.
 // Ask the user for the index of the biggest number. Tell them whether or not they were right.
+var arrRandom=[];
+var bigIndex=0;
+var bigVal=0;
+for (i=0; i<10;i++){
+
+	//alert ("i= "+i);
+
+	arrRandom[i]=Math.floor(Math.random()*10);
+	
+	//alert ("arrRandom[i]= " + arrRandom[i]);
+
+	if (arrRandom[i]>bigVal){
+		bigVal=arrRandom[i];
+		bigIndex=i;
+	}
+}
+
+alert(arrRandom.join('\n'));
+
+var myAnswer = prompt("Enter the 0-based index of the largest value?");
+if (myAnswer == bigIndex)
+	alert("Correct");
+else
+	alert("Sorry, wrong, it is " + bigIndex);
+
+
+
+
+
 
 
 // Exercise 2.3.3 - Modify your code from exercise 2.2.3 to allow the user to replay.

@@ -546,6 +546,64 @@ function exponent(number, power) {
             <p>
               <strong>Note:</strong> there's already a function that does this for you. It's Math.pow(number, power). Check it out!
             </p>
+
+            <h2>Function expressions</h2>
+            <p>
+              Function expressions will produce the same return value as their declared function counterparts. The subtle difference is that function expressions are defined <strong>at run time</strong>. They look like this:
+            </p>
+<pre class="prettyprint linenums">
+// An exponent declared function
+var exponent = function(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+            <p>
+              The implication is that function expressions must be evaluated before the function can be called. The function is now accessible by using the variable called <code>exponent</code>.
+            </p>
+
+            <h2>Anonymous functions and closures</h2>
+            <p>
+              In the prior example of function expressions, we were actually using an anonymous function. We just happened to assign it to a variable. What if we didn't?
+            </p>
+<pre class="prettyprint linenums">
+// Calling an anonymous function
+(function(message) {
+  alert(message);
+})("Hello, World!");
+}
+</pre>
+            <p>
+              We just defined and executed an anonymous function. This example is a bit contrived just to demonstrate the syntax, so let's take a look at how anonymous functions might be useful to us.
+            </p>
+
+<pre class="prettyprint linenums">
+// Using anonymous functions for callbacks
+function elaborateRoutine(nextSteps) {
+  // Here we can do our long and elaborate task asynchronously
+
+  // And when we're done, we invoke the next instruction
+  nextSteps();
+}
+
+// Using anonymous functions to bind events
+function bind(target, event, action) {
+  // If event happens on target, run the action function
+}
+bind("registrationButton", "click", function() {
+  // Let's walk through a pop-up registration wizard...
+});
+</pre>
+
+            <h2>Scope implications of anonymous functions</h2>
+            <p>
+              We can finally talk about <code>var</code> now. 
+            </p
           </section>
 
           <section id="hashes">
