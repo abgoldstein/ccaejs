@@ -1,6 +1,23 @@
 // Exercise 3.1 - Functions
 // Exercise 3.1.1 - Write a sum function. It should take an array of numbers and return the sum of them.
 
+//Still in the process of figuring this out 
+alert ("Hello");
+var MyArray = [2, 7, 3, 4, 6];
+alert (MyArray);
+
+/* I'm having trouble figuring out how to write this function. I'll work on it from home.
+function ShelbySum (array) {
+	var sum = 0;
+	for (var i = 0; i < 5; i++) {
+		alert ("The value at this location in the array is")
+		alert (array[i]);
+		var sum = sum + array[i];
+		alert ("The sum is now");
+		alert (sum);
+}
+*/
+
 
 // Exercise 3.1.2 - What is the default return value of a function? Write some code to demonstrate your answer.
 

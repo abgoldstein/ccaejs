@@ -10,14 +10,23 @@
 
 // Exercise 2.1.3 - Ask the user what month they were born in. Tell them what season that month is in.
 
-
+console.log("Message");
 
 // 2.2 - Loops
 // Exercise 2.2.1 - Use a loop to count from 10 to 1. Alert each value as you count.
-
+//for (var i = 1; i < 11; i++) {
+//	alert(i)
+//}
 
 // Exercise 2.2.2 - Use a loop to count from 10 to 20. Add each number to a total sum and alert that value at the end.
-
+// var sum = 0;
+// for (var i = 1; i < 11; i++) {
+	// alert ("i is equal to");
+	// alert (i);
+	// var sum = sum + i;
+	// alert ("sum is equal to");
+	// alert (sum);
+//}
 
 // Exercise 2.2.3
 // Generate a random number (I haven't told you how to do this. Try Googling for it)
@@ -25,7 +34,18 @@
 // Tell the user if they got the number or if they were too high or too low.
 // Let the user continue guessing until they get to the right answer.
 
-
+/* var RandNum=Math.floor(Math.random()*26);
+for (var i = 1; i > 0; i++) {
+var guess = prompt("I just picked a random number. Guess what it is. It's between zero and twenty five. What is your guess?");
+if (guess == RandNum){
+alert("Wow, you guessed correctly!");
+break;
+}
+else {
+alert("Guess again.")
+}
+}
+*/
 
 // 2.3 - Arrays
 // Create an array of usernames. They can be anything.
