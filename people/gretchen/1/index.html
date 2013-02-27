@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 1 - Getting Started">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 1 -->
+    <section class="slide">
+      <h1>Week 1 - Hello, everyone</h1>
+    </section>
+
+    <!-- Self introduction -->
+    <section class="slide">
+      <h2>Hello, I'm Adam.</h2>
+      <ul>
+        <li>Hi, my name is <a href="http://www.abgoldstein.com">Adam</a>.</li>
+        <li>I work at the <a href="http://www.mitre.org">MITRE Corporation</a>, writing open source healthcare web applications.</li>
+        <li>I mostly am a Ruby on Rails and JavaScript developer. Currently working on an iOS project.</li>
+        <li>I've played soccer all my life, I speak Japanese, and this morning I ate nothing for breakfast.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Hello, Class.</h2>
+      <p>Let's get to know each other a little bit. We'll go around the room twice.</p>
+      <ul>
+        <li>First, tell us anything you want about yourself. At the very least, give us your name, what you're up to in life, and what you had for breakfast this morning.</li>
+        <li>Then, tell us two truths and a lie about yourself. <strike>I'm Adam, I am the instructor for this course, and I will go first in this game.</strike></li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Hello, JavaScript.</h2>
+      <p>Let's talk about the history later. Here is what you practically need to know right now:</p>
+      <ul>
+        <li>JavaScript is the language of web browsers. Using it, you can manipulate elements contained within the Document Object Model</li>
+        <li>JavaScript was created in 10 days in 1995 by Brendan Eich at Netscape; it shows. However, the community has adopted the good parts and matured them</li>
+        <li>JavaScript is a loosely typed language. White space does not matter. Comments are done C-style (// to comment a line, /*  */ for longer comments)</li>
+        <li>If you are comfortable with a C-like language, the basic syntax will feel immediately familiar</li>
+      </ul>
+      <blockquote>
+        <p>Deep down, JavaScript has more in common with Lisp and Scheme than with Java. It is Lisp in C's clothing. This makes JavaScript a remarkably powerful language.</p>
+        <p><cite>Douglas Crockford, <u><a href="http://shop.oreilly.com/product/9780596517748.do">Javascript: The Good Parts</a></u></cite></p>
+      </blockquote>
+    </section>
+
+
+    <!-- Syllabus -->
+    <section class="slide">
+      <h1>Week 1 - Syllabus</h1>
+    </section>
+    <section class="slide">
+      <h2>Establish common ground</h2>
+      <ul>
+        <li>Establish common familiarity with OSX</li>
+        <li>Introduce/review git</li>
+        <li>Create an account on GitHub</li>
+        <li>Clone the class project <a href="https://www.github.com/abgoldstein/ccaejs">ccaejs</a></li>
+        <li>Explore the basic tools and workflow we'll be using</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Basics of programming</h2>
+      <ul>
+        <li>Variables</li>
+        <li>Conditions</li>
+        <li>Loops</li>
+        <li>Arrays and hashes</li>
+        <li>Functions</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>A little more advanced</h2>
+      <ul>
+        <li>Closures</li>
+        <li>Anonymous functions</li>
+        <li>Callbacks</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>jQuery</h2>
+      <ul>
+        <li>Selectors</li>
+        <li>DOM manipulation</li>
+        <li>Events and bindings</li>
+        <li>Using plugins</li>
+        <li>Basic animation</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>AJAX</h2>
+      <ul>
+        <li>JSON</li>
+        <li>RESTful APIs</li>
+        <li>AJAX requests and callbacks</li>
+        <li>Synchronous vs Asynchronous</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>If there's time</h2>
+      <ul>
+        <li>CoffeeScript</li>
+        <li>Backbone.js</li>
+        <li>Canvas</li>
+        <li>Class decided goals</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Out the door</h2>
+      <ul>
+        <li>Comfortable reading and writing JS</li>
+        <li>Ability to break apart functionality into logical components (functions, synchronicity)</li>
+        <li>Understanding of the DOM</li>
+        <li>Demonstration of basic AJAX, using JSON to manipulate the page</li>
+      </ul>
+    </section>
+
+
+    <!-- Bootstrapping -->
+    <section class="slide">
+      <h1>Week 1 - Bootstrapping</h1>
+    </section>
+    <section class="slide">
+      <h2>Eating our own dog food</h2>
+      <ul>
+        <li>This entire course is self contained. These slides, <a href="../../notes/index.html">notes</a>, supporting code, and <a href="../../people/index.html">your own answers</a> will be part of one project</li>
+        <li>
+          These slides are presented with JavaScript, using <a href="http://www.imakewebthings.com/deck.js/">deck.js</a>
+          <ul>
+            <li>Navigate through the presentation with the arrow keys</li>
+            <li>Press m to see a list of all the slides in the lesson</li>
+            <li>Press g to skip to a particular slide</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>OSX Basics - Just turn the thing on</h2>
+      <ul>
+        <li>In case the machines aren't on ahead of time, the power button is in the back</li>
+        <li>You can log on/off using the Apple logo in the top left hand of your screen</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>OSX Basics - Application Equivalence</h2>
+      <ul>
+        <li>Finder is like Explorer in Windows or Nautilus (et. al.) in Linux</li>
+        <li>Terminal is like DOS in Windows or the Terminal in Linux</li>
+        <li>Spotlight is like the Start bar in Windows 7 or Gnome Do in Linux</li>
+        <li>Our text editor for the course will be Sublime Text 2</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>OSX Basics - Hotkeys</h2>
+      <p>
+        Cmd here mean the Command key. It may be labeled on your keyboard as just the Apple logo. Or if you are using a keyboard intended for Windows, the Command key is the Windows key.
+      </p>
+      <ul>
+        <li>Copy - Cmd + C</li>
+        <li>Paste - Cmd + V</li>
+        <li>New Directory - Cmd + Shift + N</li>
+        <li>Switch Applications - Cmd + Tab</li>
+        <li>Switch Between Application Windows - Cmd + ~</li>
+        <li>Opening Spotlight - Cmd + Space</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Using the Terminal</h2>
+      <p>
+        The terminal can be opened by hitting Cmd + Space to open Spotlight and then typing Terminal. The first result will be Terminal.app, so you can hit enter to open the application. These are some basic commands:
+      </p>
+      <ul>
+        <li>List files - ls</li>
+        <li>Change directories - cd [destination]</li>
+        <li>Show current directory - pwd</li>
+        <li>Copy - cp [source] [destination]</li>
+        <li>Move - mv [source] [destination]</li>
+        <li>Delete - rm [file]</li>
+        <li>Delete directory - rm -r [directory]</li>
+        <li>Make directory - mkdir [name]</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using the Terminal - A quick exercise</h2>
+      <p>Let's put those commands to work. We're going to make a directory to save your projects</p>
+
+      <ol>
+        <li>Navigate to your home directory - <code>cd ~</code></li>
+        <li>Make a new directory for code. Let's call it "workspace" - <code>mkdir workspace</code></li>
+        <li>Navigate into that directory - <code>cd workspace</code></li>
+      </ol>
+
+      <pre>To make your life easier, try using tab as you type file names. The terminal will auto-complete filenames and commands to the best of its ability. <strong>Try it!</strong> Navigate back to your home directory, type <code>cd w</code> and then hit tab. It's a sanity saver!</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Using git - An explanation</h2>
+      <ul>
+        <li>git is a source code management tool. It's similar to SVN, CVS, etc.</li>
+        <li>Source control allows you to store all the files you have for a project and track your changes over time</li>
+        <li>If you make a mistake, you can always go back to an earlier state</li>
+        <li>This entire class is managed by source control, so don't be afraid to play around</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using git - Github</h2>
+      <ul>
+        <li>Github is a web interface to manage projects with git.</li>
+        <li>Go and make an account there. This is <a href="https://www.github.com/abgoldstein">me</a></li>
+        <li>An easy way to collaborate on a project is to fork a project from another user</li>
+        <li>Go and do exactly that. Now that you are logged in, go to our <a href="https://www.github.com/abgoldstein/ccaejs">class project</a>. Click on the fork button in the top right</li>
+        <li>You now own the class project. While you're not allow to save changes in my version, you can save as much as you want to yours. We can also take changes from each other. We'll revisit this at the end of class.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h2>Using git - Getting stuff from me</h2>
+      <ul>
+        <li>To get the project on your computer, first go back to my version of <a href="https://www.github.com/abgoldstein/ccaejs">ccaejs</a></li>
+        <li>Copy the address that looks like https://github.com/abgoldstein/ccaejs.git</li>
+        <li>Return to the terminal. It should be at ~/workspace from earlier</li>
+        <li>Write <code>git clone https://github.com/abgoldstein/ccaejs.git</code></li>
+        <li>You will now have a copy of the project at ~/workspace/ccaejs</li>
+        <li>If you want, you can follow along with these slides locally instead of online. It's the exact same thing.</li>
+      </ul>
+    </section>
+
+
+    <!-- Development Environment -->
+    <section class="slide">
+      <h2>Development Environment - Text Editor</h2>
+      <p>
+        For this class we're going to be using <a href="http://www.sublimetext.com/2">Sublime Text 2</a> as our text editor. We won't be using any sort of IDE, but feel free to use any other text editor you might prefer.
+      </p>
+      <ul>
+        <li>You can open Sublime via Spotlight</li>
+        <li>You can also open in via the Terminal using the command subl - <code>subl ~/workspace/ccaejs</code>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Development Environment - The debugger</h2>
+      <p>
+        All of our JavaScript is going to run in the browser, so to debug we can use built in browser tools. For example, we'll look at how to open the debugger in Chrome. The process is similar for other browsers.
+      </p>
+      <ul>
+        <li>Open Chrome</li>
+        <li>Click on the icon in the top right of the browser labeled with three horizontal lines</li>
+        <li>Hover over Tools, and then click on JavaScript Console</li>
+        <li>Right click in the console and select Clear to clear the output</li>
+        <li>This tool will be invaluable to you while learning JavaScript</li>
+      </ul>
+    </section>
+
+
+    <!-- Alerts -->
+    <section class="slide">
+      <h2>At long last - Hello, world!</h2>
+      <p>In JavaScript we'll show output to the user via the <strong>alert()</strong> command.</p>
+      <ul>
+        <li>alert is a function that takes one parameter - The message to display</li>
+        <li>For example, <code>alert("Hello, world!");</code></li>
+        <li>Right now, we're displaying a String, hence the quotes "". We'll discuss this soon.</li>
+        <li>Your message can be any text as long as it is inside the quotes, inside of the parentheses and ends with a semi-colon</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Alerts - First exercises</h2>
+      <ul>
+        <li>Create a directory for yourself in the ccaejs/people directory</li>
+        <li>Copy the directory ccaejs/weeks/1 to your newly created directory</li>
+        <li>Open the entire project with Sublime and open the files contained in ccaejs/people/your-dir/1</li>
+        <li>Open ccaejs/people/your-dir/1/this-week.html in the browser</li>
+        <li>Your exercises are marked in comments in this-week.js as 1.1.x. You can complete the work in that file and see the results back in this-week.html.</li>
+        <li>If you're stuck, ask a neighbor or check the answers in my people directory, ccaejs/people/adam</li>
+      </ul>
+    </section>
+
+
+    <!-- Variables -->
+    <section class="slide">
+      <h2>Variables - Types</h2>
+      <p>JavaScript is a loosely typed language. You do have these types:</p>
+      <ul>
+        <li>Strings - Stuff inside of quotes "" or single quotes ''</li>
+        <li>Numbers - Any number. 1, 2, 3.14, and 10e9 are all valid</li>
+        <li>Booleans - true or false</li>
+        <li>Arrays - Lists []</li>
+        <li>Objects - {}</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Variables - var</h2>
+      <p>The var keyword is special and pertains to scope. We'll address it later. For now, rules of thumb:</p>
+      <ul>
+        <li>The first time you define a variable, write it as <code>var x = 2</code></li>
+        <li>When redefining a variable that has been made before, write it as <code>x = "I'm a string now"</code></li>
+      </ul>
+      <pre><strong>Note:</strong> Variables are dynamic in JavaScript. In the above example, x started as a number and then we redefined it as a String</pre>
+    </section>
+
+
+    <!-- Closing discussion -->
+    <section class="slide">
+      <h1>Week 1 - Wrapping up</h1>
+    </section>
+
+    <section class="slide">
+      <h2>Using git - Getting stuff to me</h2>
+      <ul>
+        <li>We'll walk through this together</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Checking in</h2>
+      <p>How did this first session feel?</p>
+      <ul>
+        <li>Was the pacing good? Too slow or too fast?</li>
+        <li>Was there anything that was unclear?</li>
+        <li>Are there any particular topics you would really like to cover?</li>
+        <li>Do you remember everyone's name? Let's run around the room one more time.</li>
+      </ul>
+      <p>If you have more to say and would prefer to do so privately, or if you just think of something later on, send me an e-mail at abgoldstein@gmail.com</p>
+    </section>
+    <section class="slide">
+      <h2>"Homework"</h2>
+      <p>Here are some non-mandatory things that would be useful for next time:</p>
+      <ul>
+        <li>Send me an e-mail so I can get in touch with everyone. Again, abgoldstein@gmail.com.</li>
+        <li>Set up the tools at home that we used today. Everything we're using is available on Windows, OSX, and Linux.</li>
+        <li>Try to pull ccaejs down at home. If you can, submit your work to me as a pull request. I'll be gathering everyone's files next Tuesday night.</li>
+        <li>Visit the project's <a href="https://www.github.com/abgoldstein/ccaejs">github page</a> and file an issue. Label it as a question.</li>
+      </ul>
+      <p>If you have more to say and would prefer to do so privately, or if you just think of something later on, send me an e-mail at abgoldstein@gmail.com</p>
+    </section>
+    <section class="slide">
+      <h2>Thanks for coming!</h2>
+      <p>See you next week!</p>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
