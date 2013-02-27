@@ -1,2 +1,1 @@
-// Exercises 4.1 - Anonymous functions
-// Exercise 4.1.1 - 
+// This week we wrapped up the previous week's exercises

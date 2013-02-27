@@ -1,12 +1,28 @@
-// Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
+document.write("<pre>");
 
+// Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
+var username = prompt("What is your name?");
+document.writeln("Welcome, " + username + "!");
 
 // 2.1 - Conditionals
 // Exercise 2.1.1 - Ask the user for 2 numbers. Tell them if the first or second number was bigger.
-
+var num1 = prompt("Enter a number, please");
+var num2 = prompt("Enter a number, please");
+if (num1 > num2)
+  document.writeln("Number 1 was greater.");
+else if (num2 > num1)
+  document.writeln("Number 2 was greater.");
+else if (num1 == num2)
+  document.writeln("The numbers were equal.");
+else
+  document.writeln("Error!");
 
 // Exercise 2.1.2 - Ask the user for a number. Tell the user whether it is odd or even.
-
+var number = prompt("Enter another number");
+if (number % 2 == 0)
+  document.writeln("That number even.");
+else
+  document.writeln("That number was odd");
 
 // Exercise 2.1.3 - Ask the user what month they were born in. Tell them what season that month is in.
 
@@ -42,3 +58,5 @@
 // Exercise 2.3.3 - Modify your code from exercise 2.2.3 to allow the user to replay.
 // Add a scoreboard array to keep track of how many guesses it took them to win.
 // Show the user the scoreboard each time and congratulate them if they beat their best.
+
+document.write("</pre>");
