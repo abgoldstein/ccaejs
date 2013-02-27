@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 5.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 5 -->
+    <section class="slide">
+      <h1>Week 5 - Functions everywhere</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <p>
+        To get started, pull down the latest from the ccaeJS project. If you don't quite remember how, remember that you can check the <a href="../../notes/index.html">notes</a>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Plan for tonight</h2>
+      <ul>
+        <li>Review last week's exercises</li>
+        <li>Anonymous function exercises</li>
+        <li>Review and discuss more about complex functions</li>
+        <li>More function exercises</li>
+      </ul>
+    </section>
+
+
+    <!-- Exercise review -->
+    <section class="slide">
+      <h2>Thoughts?</h2>
+      
+    </section>
+
+
+    <!-- This week -->
+    <section class="slide">
+      <h2>Moving on</h2>
+
+      <ul>
+        <li>We're not going to return to last week's work in class.</li>
+        <li>I've added notes to try to help you finish, if you're interested in completing the work. It is not mandatory.</li>
+        <li>I've also added this-week-answers.js and this-week-answers.html to every week</li>
+        <li>I've switched to <code>document.writeln()</code> rather than <code>alert()</code></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Note on document.writeln</h2>
+
+      <ul>
+        <li>There is a matching <code>document.write()</code> function. <code>document.writeln()</document> adds a <code>\n</code> (newline) character to the end of the string.</li>
+        <li>Newline is not interpreted by HTML because it is not white space sensitive</li>
+        <li>You'll notice in the exercises that I do <code>document.write("<pre>")</code> at the beginning and <code>document.write("</pre>")</code></li>
+        <li>Within the <code>pre</code> tag, we <strong>are</strong> white space sensitive and so <code>document.writeln()</code> behaves as expected.</li>
+      </ul>
+    </section>
+
+
+    <!-- Wrap up -->
+    <section class="slide">
+      <h2>That's it for the week!</h2>
+    
+      <ul>
+        
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
