@@ -13,7 +13,13 @@
 // More details can be found here - http://en.wikipedia.org/wiki/Caesar_cipher
 // I have excluded a bunch of information here. You'll probably need an ASCII chart, a way to get substrings, and to count characters.
 // Try using the internet to fill in your missing toolset. I can help you if you get stuck.
+function decrypt() {
+  
+}
 
+function encrypt() {
+
+}
 
 // Exercises 3.1.4 - Write the Caesar Cipher decrypt function.
 // Write a function to take an encrypted message and decrypt it with a given cipher. Show the user the decrypted message.
