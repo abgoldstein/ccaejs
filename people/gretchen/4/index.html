@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 4.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 4 -->
+    <section class="slide">
+      <h1>Week 4 - Functions</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <p>
+        To get started, pull down the latest from the ccaeJS project. If you don't quite remember how, remember that you can check the <a href="../../notes/index.html">notes</a>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Plan for tonight</h2>
+      <ul>
+        <li>Review last week's array and loop exercises</li>
+        <li>Discuss functions and do exercises</li>
+        <li>Notes on anonymous functions</li>
+        <li>This week's exercises</li>
+      </ul>
+    </section>
+
+
+    <!-- Exercise review -->
+    <section class="slide">
+      <h2>Thoughts?</h2>
+      <p>
+        Any thoughts on the exercises from last week? Anything in particular that was difficult and you'd like to see more of?
+      </p>
+    </section>
+
+
+
+
+    <!-- Functions -->
+    <section class="slide">
+      <h2>Functions</h2>
+      <ul>
+        <li>Declared functions are a lot like functions as you'd find in C</li>
+        <li>A big difference is that you don't define the return type or the types of the parameters because we don't need to</li>
+        <li>Declared functions are defined <strong>at parse time</strong></li>
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Declared functions</h2>
+<pre class="prettyprint linenums">
+// An exponent declared function
+function exponent(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+      <p>
+        <strong>Note:</strong> there's already a function that does this for you. It's Math.pow(number, power). Check it out!
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve!</h2>
+
+      <ul>
+        <li>If you haven't already, copy Week 3 in the project to your people folder</li>
+        <li>Open this-week.js and do all of the assignments</li>
+        <li>If you'd like more practice with conditionals and control flow, click <a href="http://www.codecademy.com/courses/javascript-beginner-en-qDwp0?curriculum_id=506324b3a7dffd00020bf661">here</a></li>
+        <li>If you're ready to start learning about the DOM and jQuery, click <a href="http://www.codecademy.com/courses/web-beginner-en-bay3D?curriculum_id=50a3fad8c7a770b5fd0007a1">here</a></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Function expressions</h2>
+<pre class="prettyprint linenums">
+// An exponent declared function
+var exponent = function(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+      <p>
+        How is this different? The implication is that function expressions must be evaluated before the function can be called. The function is now accessible by using the variable called <code>exponent</code>.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions</h2>
+
+      <p>
+        In the prior example of function expressions, we were actually using an anonymous function. We just happened to assign it to a variable. What if we didn't?
+      </p>
+
+<pre class="prettyprint linenums">
+// Calling an anonymous function
+(function(message) {
+  alert(message);
+})("Hello, World!");
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions - Call backs</h2>
+
+      <p>
+        We just defined and executed an anonymous function. This example is a bit contrived just to demonstrate the syntax, so let's take a look at how anonymous functions might be useful to us.
+      </p>
+
+<pre class="prettyprint linenums">
+// Using anonymous functions for callbacks
+function elaborateRoutine(nextSteps) {
+  // Here we can do our long and elaborate task asynchronously
+
+  // And when we're done, we invoke the next instruction
+  nextSteps();
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions - Event binding</h2>
+
+<pre class="prettyprint linenums">
+// Using anonymous functions to bind events
+function bind(target, event, action) {
+  // If event happens on target, run the action function
+}
+bind("registrationButton", "click", function() {
+  // Let's walk through a pop-up registration wizard...
+});
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous Functions - Implications</h2>
+
+      <ul>
+        <li>We can finally talk about <code>var</code>.</li>
+        <li><code>var</code> means to define a <strong>local</strong> variable.</li>
+        <li>If var is not present, we search up the scope to find the nearest definition</li>
+        <li>Rule of them - {}s define a scope. We will revisit this concept later. For now, loops and functions have their own scope and can nest infinitely</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>var - Consider this</h2>
+
+<pre class="prettyprint linenums">
+// What is the value of i at the end?
+var i = 20;
+for (var i = 0; i < 10; i++) {
+  // Actions
+}
+alert(i);
+
+// What is the value of n at the end?
+var n = 0;
+for (n = 0; n < 10; n++) {
+  // Actions
+}
+alert(n);
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve again!</h2>
+
+      <ul>
+        <li>Copy Week 4 in the project to your people folder</li>
+        <li>Open this-week.js and do all of the assignments</li>
+        <li>If you need a bit more scaffolding for functions, <a href="http://www.codecademy.com/courses/javascript-beginner-en-6LzGd?curriculum_id=506324b3a7dffd00020bf661">start here</a></li>
+        <li>If you're ready for more jQuery, <a href="http://www.codecademy.com/courses/web-beginner-en-GfjC6?curriculum_id=50a3fad8c7a770b5fd0007a1">try this</a></li>
+      </ul>
+    </section>
+
+
+    <!-- Wrap up -->
+    <section class="slide">
+      <h2>That's it for the week!</h2>
+    
+      <ul>
+        <li>Any questions?</li>
+        <li>If you still haven't e-mailed me, please do</li>
+        <li>Send me at least one long project idea</li>
+        <li>If you haven't signed up on CodeAcademy yet, give it a shot.</li>
+        <li><strong>Coming next time:</strong> Hashes and anonymous functions - A prelude to jQuery</li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>

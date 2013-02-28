@@ -1,5 +1,5 @@
 // Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
-
+var username = prompt("What is your name?");
 
 // 2.1 - Conditionals
 // Exercise 2.1.1 - Ask the user for 2 numbers. Tell them if the first or second number was bigger.
