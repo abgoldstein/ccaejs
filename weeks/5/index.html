@@ -75,7 +75,56 @@
     <!-- Exercise review -->
     <section class="slide">
       <h2>Thoughts?</h2>
-      
+    </section>
+
+<section class="slide">
+      <h2>Testing the sum function</h2>
+
+<pre class="prettyprint linenums">
+// We can test to see that our functions work!
+function sum(numbers) {
+  var sum = 0;
+  for (var i = 0; i < numbers.length; i++)
+    sum += numbers[i];
+
+  return sum;
+}
+
+var numbers = [1, 5, 9, 20];
+var total = sum(numbers);
+if (total == 35)
+  document.writeln("Sum function works!");
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Default return value of a function</h2>
+
+<pre class="prettyprint linenums">
+function arbitraryFunction() {
+  var x = 0;
+}
+var defaultReturnValue = arbitraryFunction();
+document.writeln("The default return value of a function is " + defaultReturnValue);
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>undefined</h2>
+
+      <ul>
+        <li>It is a type</li>
+        <li>It is also a value. In fact, it is the sole possible value of the <code>undefined</code> type.</li>
+        <li>It does not mean <code>null</code>. <code>undefined</code> is the absence of a value. <code>null</code> is actively choosing no value.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>The Caesar Cipher</h2>
+
+      <ul>
+        <li>Difficulties?</li>
+        <li>Looking at code in sublime</li>
     </section>
 
 
@@ -103,12 +152,121 @@
     </section>
 
 
+    <section class="slide">
+      <h2>Function expressions</h2>
+<pre class="prettyprint linenums">
+// An exponent declared function
+var exponent = function(number, power) {
+  // For brevity, let's ignore negative exponents
+  var answer = 1;
+  for (var i = 0; i < power; i++) {
+    answer *= number;
+  }
+
+  return answer;
+}
+</pre>
+      <p>
+        How is this different? The implication is that function expressions must be evaluated before the function can be called. The function is now accessible by using the variable called <code>exponent</code>.
+      </p>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions</h2>
+
+      <p>
+        In the prior example of function expressions, we were actually using an anonymous function. We just happened to assign it to a variable. What if we didn't?
+      </p>
+
+<pre class="prettyprint linenums">
+// Calling an anonymous function
+(function(message) {
+  alert(message);
+})("Hello, World!");
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions - Call backs</h2>
+
+      <p>
+        We just defined and executed an anonymous function. This example is a bit contrived just to demonstrate the syntax, so let's take a look at how anonymous functions might be useful to us.
+      </p>
+
+<pre class="prettyprint linenums">
+// Using anonymous functions for callbacks
+function elaborateRoutine(nextSteps) {
+  // Here we can do our long and elaborate task asynchronously
+
+  // And when we're done, we invoke the next instruction
+  nextSteps();
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous functions - Event binding</h2>
+
+<pre class="prettyprint linenums">
+// Using anonymous functions to bind events
+function bind(target, event, action) {
+  // If event happens on target, run the action function
+}
+bind("registrationButton", "click", function() {
+  // Let's walk through a pop-up registration wizard...
+});
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Anonymous Functions - Implications</h2>
+
+      <ul>
+        <li>We can finally talk about <code>var</code>.</li>
+        <li><code>var</code> means to define a <strong>local</strong> variable.</li>
+        <li>If var is not present, we search up the scope to find the nearest definition</li>
+        <li>Rule of them - {}s define a scope. We will revisit this concept later. For now, loops and functions have their own scope and can nest infinitely</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>var - Consider this</h2>
+
+<pre class="prettyprint linenums">
+// What is the value of i at the end?
+var i = 20;
+for (var i = 0; i < 10; i++) {
+  // Actions
+}
+alert(i);
+
+// What is the value of n at the end?
+var n = 0;
+for (n = 0; n < 10; n++) {
+  // Actions
+}
+alert(n);
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve!</h2>
+
+      <ul>
+        <li>Copy Week 5 in the project to your people folder</li>
+        <li>Open this-week.js and do all of the assignments</li>
+        <li>If you need a bit more scaffolding for functions, <a href="http://www.codecademy.com/courses/javascript-beginner-en-6LzGd?curriculum_id=506324b3a7dffd00020bf661">start here</a></li>
+        <li>If you're ready for more jQuery, <a href="http://www.codecademy.com/courses/web-beginner-en-GfjC6?curriculum_id=50a3fad8c7a770b5fd0007a1">try this</a></li>
+      </ul>
+    </section>
+
     <!-- Wrap up -->
     <section class="slide">
       <h2>That's it for the week!</h2>
     
       <ul>
-        
+        <li>Next time! We start the second half of the course and jQuery!</li>
+        <li>Logisitics for next week: I can't be here. Skype in? Reschedule?</li>
       </ul>
     </section>
 
