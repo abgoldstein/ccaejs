@@ -34,8 +34,6 @@ function decrypt() {
   
 }
 
-function encrypt() {
-
 }
 
 // Exercises 3.1.4 - Write the Caesar Cipher decrypt function.
