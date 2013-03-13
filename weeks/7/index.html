@@ -88,21 +88,86 @@
       </ul>
 
 <pre class="prettyprint linenums">
-// Create a list of lists
+// 1-dimensional list of all names in the class
+var names = ["Doug", "David", "Cassandra", "Shelby", "Emily", "Rada", "Sara", "Gretchen"];
+
+// 2-dimensional list of names in the class by row where people sit.
+var namesByRow = [
+  ["Doug", "David"],
+  ["Cassandra", "Shelby", "Emily"],
+  ["Rada", "Sara", "Gretchen"]
+];
 </pre>
     </section>
 
 
     <!-- Objects -->
     <section class="slide">
-      <h2>Multidimensional arrays</h2>
+      <h2>Objects</h2>
       <ul>
-        <li>Exactly like every other language. We're nesting arrays inside other arrays.</li>
-        <li>They don't come up extremely frequently (in my experience). Often there's more a combination of nested Objects within Arrays.</li>
+        <li>If you are familiar with OOP, objects will feel comfortable.</li>
+        <li>JavaScript objects are prototypical. We'll visit that next week.</li>
+        <li>The short version: Objects are a collection of related data and functions.</li>
       </ul>
 
 <pre class="prettyprint linenums">
-// Create an object
+// An example of a car object
+var car = {
+  make: "Honda",
+  model: "Accord",
+  year: 2003,
+  drive: function() {
+    // Vroom.
+  }
+};
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Creation and access</h2>
+      <ul>
+        <li>There are two ways to create Objects:
+          <ul>
+            <li>Object literal notation, <code>var object = {};</code></li>
+            <li>Object constructor, <code>var object = new Object();</code></li>
+            <li>In my experience, object literal notation is more common and preferred.</li>
+          </ul>
+        </li>
+        <li>There are two ways to access or modify members of the object:
+          <ul>
+            <li>Dot notation, object.member</li>
+            <li>Square bracket notation, object[member]</li>
+            <li>Dot notation is syntactic sugar for square bracket notation. At its heart, Objects are syntactic sugar of Arrays. Remember that comment early on about "associative arrays"?</li>
+            <li>In my experience, dot notation is more common and preferred.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>A bit more code</h2>
+
+<pre class="prettyprint linenums">
+// An example of a car object
+var car = {
+  make: "Honda",
+  model: "Accord",
+  year: 2003,
+  brag: function() {
+    alert("Hello, I am a " + this.make + " " + this.model);
+  },
+  pullOver: function() {
+    if (this.registration) {
+      alert("Here you are officer..." + this.registration);
+    } else {
+      // uh oh
+    }
+  }
+};
+
+// Let's use the car
+car.drive();
+car.pullOver(); // What happens?
 </pre>
     </section>
 
@@ -121,6 +186,11 @@
     <section class="slide">
       <h2>Thanks!</h2>
       <ul>
+        <li>Next time:
+          <ul>
+            <li>Objects continued</li>
+            <li>Prototypial Inheritance</li>
+          </ul>
         <li>See you next week!</li>
       </ul>
     </section>
