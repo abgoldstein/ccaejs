@@ -33,7 +33,7 @@ if ( UserAge >= 18 ) {
 }
 else {
    var YearsTilVotingAge = 18 - UserAge;
-   if ( UserAge = 17 ) {
+   if ( UserAge == 17 ) {
    alert( "Great, " + UserName + "! In " + YearsTilVotingAge + " year you'll be able to vote!" );
    }
    else { 

@@ -11,7 +11,7 @@ var RunningTotal = 0;
 return RunningTotal;
 };
 
-alert( "The sum is " + SumIt( [1, 2, 3, 4, 5 ] ) + ".");
+alert( "The sum is " + SumIt( [ 1, 2, 3, 4, 5 ] ) + ".");
 
 // Exercise 3.1.2 - What is the default return value of a function? Write some code to demonstrate your answer.
 alert ( "Exercise 3.1.2" );
@@ -28,120 +28,127 @@ alert( "The default return value of a function is " + DefaultReturnValue() );
 // More details can be found here - http://en.wikipedia.org/wiki/Caesar_cipher
 // I have excluded a bunch of information here. You'll probably need an ASCII chart, a way to get substrings, and to count characters.
 // Try using the internet to fill in your missing toolset. I can help you if you get stuck.
-alert ( "Exercise 3.1.3 Come Back To This Sad Little Mess.  At least it parses." );
+alert ( "Exercise 3.1.3 Encrypt" );
 //Warmups
 var atoi_check = [ "A".charCodeAt(),"Z".charCodeAt(),"a".charCodeAt(),"z".charCodeAt() ];
 alert( atoi_check );
 var itoa_check = [ String.fromCharCode("A".charCodeAt()), String.fromCharCode("Z".charCodeAt()), String.fromCharCode("a".charCodeAt()), String.fromCharCode("z".charCodeAt()) ];
 alert( itoa_check );
 
-function CC_Encrypt ( Sentence, Cipher ) {
-  var EncryptedSentence = [];
-  var ENum;
-  var CipherWrap;
-  //setup ascii variables for bounds checking
-  var UpperCaseLowest ="A".charCodeAt();
-  var UpperCaseHighest ="Z".charCodeAt();
-  var LowerCaseLowest ="a".charCodeAt();
-  var LowerCaseHighest ="z".charCodeAt();
+//Just encrypting letters because assuming Caesar used Roman not Arabic numerals. Don't know what he did for punctuation so leaving that out.
 
-  for ( var EIndex in Sentence ) {
-  	//for now show what came in
-  	alert( Sentence [ EIndex ] );
-   
-    //Get the ascii value of the character
-    ENum = Sentence[EIndex].charCodeAt();
-  //for now show what looked up
-    alert( ENum );
-
-    if ( ENum < UpperCaseLowest || ENum > LowerCaseHighest || ( ENum > UpperCaseHighest && ENum < LowerCaseLowest )) {
-      alert( "Unrecognized Character.  Just going to substitute a dash for this exercise." );
-      EncryptedSentence[EIndex]="-";
-    }
-    else {
-      //Is it upper case and in the wrap range?  These clauses depend on relative order of uc and lc in ascii table 
-      if ( ENum <= UpperCaseHighest && ENum > ( UpperCaseHighest - Cipher )) {
-        CipherWrap = UpperCaseHighest - ENum;
-        ENum = UpperCaseLowest + CipherWrap;
-        EncryptedSentence[EIndex] = String.fromCharCode( ENum );
-      }
-
-      else {
-         //Is it lower case and in the wrap range?  These clauses depend on relative order of uc and lc in ascii table 
-         if ( ENum <= LowerCaseHighest && ENum > ( LowerCaseHighest - Cipher )) {
-           CipherWrap = LowerCaseHighest - ENum;
-           ENum = LowerCaseLowest + CipherWrap;
-           EncryptedSentence[EIndex] = String.fromCharCode( ENum );
-         } 
-         else {
-           //It's either upper or lower case but no wrap is needed
-           Enum = ENum + Cipher;
-           EncryptedSentence[EIndex] = String.fromCharCode(ENum);
-         };
-      };
+function Encode ( CharNum, Cipher, RangeLowest, RangeHighest ) {
+ var ShftCharNum = CharNum + Cipher;
+ if (( CharNum >= RangeLowest ) && ( CharNum <= RangeHighest )) {
+      // If need to wrap to beginning of alphabet, do it
+      if ( ShftCharNum > RangeHighest ) {
+        return( RangeLowest + ( ShftCharNum - RangeHighest ) - 1 );
+      } else { return( ShftCharNum ); };
     };
+ //else the character is not in the range
+ return( -1 );
+};
+
+function CC_Encrypt ( Sentence, CipherStr ) {
+  var EncryptedSentence = "";
+  var CharNum;
+  var ENum;
+  
+  var EArray = Sentence.split("");
+  var Cipher = parseInt( CipherStr );
+
+  for ( i=0; i<Sentence.length; i++ ) {
+    //Get the unicode value of the character
+    CharNum = EArray[i].charCodeAt();
+    
+    Enum = Encode ( CharNum, Cipher, "A".charCodeAt(), "Z".charCodeAt() ); 
+    if ( ENum > -1 ) { 
+       //temp print-out for upper case
+       alert( ENum + "Value" + String.fromCharCode( ENum ) );
+       EncryptedSentence += String.fromCharCode( ENum );  
+       continue;
+    };
+
+    // See if it's lower case;
+    Enum = Encode ( CharNum, Cipher, "a".charCodeAt(), "z".charCodeAt() );
+    if ( ENum  > -1 ) {
+       //temp print-out for lower case
+       alert( ENum + "Value" + String.fromCharCode( ENum ) );
+       EncryptedSentence += String.fromCharCode( ENum );  
+
+    }  //Else it's an Unrecognized Character.  Just going to substitute a dash.
+    else { EncryptedSentence += String.fromCharCode( 45 )};
   };
   return EncryptedSentence;
 };
 
 var UserSentence = "";
-var UserCipher = 0;
+var EncryptedSentence = "";
+var UserCipherString = "";
+var UserCipher = -1;
+
 UserSentence = prompt( "What sentence do you want to encrypt?", "Your Sentence Here" );
-UserCipher = prompt( "What cipher do you want to use?", "Your Cipher Here" );
-alert( "Your encrypted sentence is " + CC_Encrypt( UserSentence, UserCipher ));
+UserCipherString = prompt( "What cipher do you want to use?", "Your Cipher Here" );
+//Brittle, but assuming no leading spaces and ignore any following chars and see if can make it a num
+UserCipher = UserCipherString;
+EncryptedSentence = CC_Encrypt( UserSentence, UserCipher );
+alert( "Your encrypted sentence is " + EncryptedSentence );
 
 
+// The following abandoned for now - come back when get encrypt to work
 // Exercises 3.1.4 - Write the Caesar Cipher decrypt function.
 // Write a function to take an encrypted message and decrypt it with a given cipher. Show the user the decrypted message.
 
-alert ( "Exercise 3.1.4 Come Back To This Sad Little Mess.  At least it parses." );
-function CC_Decrypt ( Sentence, Cipher ) {
-  var DecryptedSentence = [];
-  var DNum;
-  var CipherWrap;
-  //setup ascii variables for bounds checking
-  var UpperCaseLowest ="A".charCodeAt();
-  var UpperCaseHighest ="Z".charCodeAt();
-  var LowerCaseLowest ="a".charCodeAt();
-  var LowerCaseHighest ="z".charCodeAt();
+alert ( "Exercise 3.1.4 Decrypt" );
 
-  for (var DIndex in Sentence ) {
-   
-    //Get the ascii value of the character
-    DNum = Sentence[DIndex].charCodeAt();
-
-    if ( DNum < UpperCaseLowest || DNum > LowerCaseHighest || ( DNum > UpperCaseHighest && DNum < LowerCaseLowest)) {
-      alert( "Unrecognized Character.  Just going to substitute a dash for this exercise." );
-      DecryptedSentence[DIndex]="-";
-    }
-    else {
-      //Is it lower case and in the wrap range?  These clauses depend on relative order of uc and lc in ascii table 
-      if ( DNum >= LowerCaseLowest && DNum < ( LowerCaseLowest + Cipher  )) {
-        CipherWrap = DNum - LowerCaseLowest;
-        DNum = LowerCaseHighest - Cipher - CipherWrap + 1;
-        DecryptedSentence[DIndex] = String.fromCharCode( DNum );
-      }
-
-      else {
-         //Is it upper case and in the wrap range?  These clauses depend on relative order of uc and lc in ascii table 
-         if ( DNum >= UpperCaseLowest && DNum < ( UpperCaseLowest + Cipher )) {
-          CipherWrap = DNum - UpperCaseLowest;
-          DNum = UpperCaseHighest - Cipher - CipherWrap + 1;
-          DecryptedSentence[DIndex] = String.fromCharCode( DNum );
-         } 
-         else {
-           //It's either upper or lower case but no wrap is needed
-           DNum = DNum - Cipher;
-           DecryptedSentence[DIndex] = String.fromCharCode( DNum );
-         };
-      };
+function Decode ( CharNum, Cipher, RangeLowest, RangeHighest ) {
+ var ShftCharNum = CharNum - Cipher;
+ if (( CharNum >= RangeLowest ) && ( CharNum <= RangeHighest )) {
+      // If need to wrap to end of alphabet, do it
+      if ( ShftCharNum < RangeLowest ) {
+        return( RangeHighest - ( RangeLowest - ShftCharNum ) + 1 );
+      } else { return( ShftCharNum ) };
     };
+  //else the character is not in the range
+  return( -1 );
+};
+
+function CC_Decrypt ( Sentence, CipherStr ) {
+  var DecryptedSentence = "";
+  var CharNum;
+  var DNum;
+  
+  var Cipher = parseInt( CipherStr );
+  var DArray = Sentence.split("");
+  for ( i=0; i<Sentence.length; i++ ) {
+    //Get the unicode value of the character
+    CharNum = DArray[i].charCodeAt();
+    DNum = Decode ( CharNum, Cipher, "A".charCodeAt(), "Z".charCodeAt())
+    if (  DNum > -1 ) {
+       //temp print-out
+       alert( DNum );
+       alert( String.fromCharCode( DNum ) );
+       DecryptedSentence += String.fromCharCode( DNum ); 
+       continue;
+    };
+    DNnum = Decode ( CharNum, Cipher, "a".charCodeAt(), "z".charCodeAt());
+    if ( DNum > -1 ) {
+       //temp print-out
+       alert( DNum );
+       alert( String.fromCharCode( DNum ) );
+       DecryptedSentence += String.fromCharCode( DNum );  
+    //Unrecognized Character.  Just going to substitute a dash.
+    } else { DecryptedSentence += String.fromCharCode( 45 )};
   };
   return DecryptedSentence;
 };
 
 UserSentence = prompt( "What sentence do you want to decrypt?", "Your Sentence Here" );
-UserCipher = prompt( "What cipher was used?", "Your Cipher Here" );
+UserCipherString = prompt( "What cipher was used?", "Your Cipher Here" );
+//Brittle, but for here assume no leading character and ignore any following ones
+UserCipherString = UserCipherString.substr(0,1);
+alert (UserCipherString);
+UserCipher = UserCipherString.charCodeAt();
 alert( "Your decrypted sentence is " + CC_Decrypt( UserSentence, UserCipher ));
 
 
