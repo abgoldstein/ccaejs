@@ -1,80 +1,171 @@
+var i; //index for most or all of the loops in this file
+
 // Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
-// Exercise 1.review - Ask the user for their name. Welcome them with a personalized message.
-var name = prompt("What is your name?");
-alert("Welcome," + name );
+var YourName = prompt( "Exercise 1.review  What is your name?", "Your Name Here" );
+alert( "Welcome, " + YourName + " !" );
 // 2.1 - Conditionals
 // Exercise 2.1.1 - Ask the user for 2 numbers. Tell them if the first or second number was bigger.
-var num1 = prompt("Please give me a number");
-var num2 = prompt("Please give me a second number");
-if (num1 > num2) {
-	alert("First number is greater"); }
-	else if (num2 > num1) {
-		alert ("Second number is greater");}
-	else { alert ("They're equal");}
+var num1 = prompt( "Exercise 2.1.1  Please enter a number", "Your First Number Here" );
+var num2 = prompt( "Now enter a second number", "Your Second Number Here" );
+if ( num1 > num2 ) {
+	alert( "First number is greater." ); 
+  }
+else if ( num2 > num1 ) {
+		alert( "Second number is greater." );
+    }
+	  else { alert( "They're equal" );
+    };
 
 // Exercise 2.1.2 - Ask the user for a number. Tell the user whether it is odd or even.
-var num3 = prompt("Please give me a number");
-if (num3 % 2 == 0) {
-   alert ("Your number is even"); }
+var num3 = prompt( "Exercise 2.1.2  OK, enter another number to see if it's even or odd ", "Your Number Here" );
+if ( num3 % 2 == 0 ) {
+   alert( "Your number is even." ); 
+   }
 else { 
-   alert("Your number is odd"); }
+   alert( "Your number is odd." ); 
+   };
  
-
 // 2.2 - Loops
 // Exercise 2.2.1 - Use a loop to count from 10 to 1. Alert each value as you count.
-for (var i=10; i>0; i-- ) {	
-   alert( i );}
-
+alert( "Exercise 2.2.1  Countdown" );
+for ( i=10; i>0; i-- ) {	
+   alert( i ); 
+ };
+alert( "Ignition" );
 
 // Exercise 2.2.2 - Use a loop to count from 10 to 20. Add each number to a total sum and alert that value at the end.
 var GrandTotal = 0;
-for (var i=10; i<21; i++ ) {
+for ( i=10; i<21; i++ ) {
    GrandTotal += i;
-   }
-alert("The total sum is" + GrandTotal);
+   };
+alert( "Exercise 2.2.2  The total sum is " + GrandTotal + ".");
 
 // Exercise 2.2.3
 // Generate a random number (I haven't told you how to do this. Try Googling for it)
 // Ask the user to try to guess the number (Give them the possible range)
 // Tell the user if they got the number or if they were too high or too low.
 // Let the user continue guessing until they get to the right answer.
-
-var RandomNumber = Math.floor ( Math.random () * 11 );
+var RandomNumber = Math.floor( 1 + Math.random()*10 );
 var UserGuess = 0;
-prompt ( "Guess a number between 1 and 10", UserGuess );
-while ( UserGuess != RandomNumber ) 
+UserGuess = prompt( "Exercise 2.2.3  Guess a number 1 to 10.", "Your Number Here" );
+while ( UserGuess != RandomNumber ) {
 	if ( UserGuess < RandomNumber ) {
-		prompt ( "Your number is too low.  Try again!", UserGuess );
-        }
-    else if ( UserGuess > RandomNumber ) {
-	    prompt ( "Your number is too high.  Try again!", UserGuess );
+		   UserGuess = prompt( "Your number is too low.  Try again!", "Your Number Here" );
+       }
+  else if ( UserGuess > RandomNumber ) {
+	     UserGuess = prompt( "Your number is too high.  Try again!", "Your Number Here" );
         };
-alert ("Great, you got it! );
+};
+alert( "Great, you got it!" );
 
-// 2.3 - Arrays
+//2.3 - Arrays
 // Create an array of usernames. They can be anything.
 // Ask the user for their name. Check to see if that name is on the list.
 // If the user is on the list, welcome them in. Otherwise, tell them to leave!
 // Bonus: Now that this is working, try Googling for an easier way to do this.
-var UserNames = ["Washington", "Adams", "Jefferson", "Lincoln", "Johnson"];
+alert( "Exercise 2.3" );
+var UserNames = [ "Washington", "Adams", "Jefferson", "Lincoln", "Johnson" ];
 var ThisUserName = "";
-prompt( "Hi! What's your name?", ThisUserName );
-for ( var Index in UserNames ) {
-  if ( UserNames[Index] == ThisUserName ) {
-	alert( "Welcome!");
-    }
-	else {
-	alert( "User Name Not Found" );
-   };
-}
+ThisUserName = prompt( "Hi! What's your name?", "Your Name Here" );
+var Found = false;
+var Max = UserNames.length;
 
-// COME BACK TO THE GOOGLE
+for ( i=0; i< Max; i++ ) {
+  if ( UserNames[ i ] == ThisUserName ) {
+    alert( "Welcome! " + ThisUserName );
+    Found = true;
+    break;
+    }
+};
+if (!Found) {
+  alert( ThisUserName + " wasn't found.  To use this site, you need to set up an account." );
+};
+
+// BACK TO THE BONUS QUESTION
+alert( "Exercise 2.3 Alternative, using indexOf" );
+var AnotherUserName = "";
+while ( true) {
+    AnotherUserName = prompt( "Hi! What's your name?", "Your Name Here or enter Quit" );
+    if ( AnotherUserName == "Quit" || AnotherUserName == "quit" ) break;
+    if ( UserNames.indexOf( AnotherUserName ) == -1 ) {
+      alert( AnotherUserName + " wasn't found.  To use this site, you need to set up an account." );
+    } else { alert( "Welcome! " + AnotherUserName ); };
+};
+
 
 // Exercise 2.3.2
 // Generate 10 random numbers and show them all to the user.
 // Ask the user for the index of the biggest number. Tell them whether or not they were right.
+alert( "Exercise 2.3.2  One Guess" );
+var RandomArray = [ -1,-1,-1,-1,-1,-1,-1,-1,-1,-1 ];
+var LargestNumber = 0;
+var LargestIndex = -1;
+var UserIndex = -1;
 
+for( i=0; i<=9; i++ ) {
+  RandomArray[ i ] = Math.floor( 1 + Math.random()*10 );
+  if ( RandomArray[ i ] > LargestNumber ) {
+    LargestNumber = RandomArray[ i ];
+    LargestIndex = i;
+  };
+};
+
+//Have the user guess once
+UserIndex = prompt( "What's the index of the largest number in this array?", "Your Number From 0  to 9 Here" );
+//There may be duplicates of the largest number, so can't just compare the locations
+if( RandomArray[ UserIndex ] == LargestNumber ) {
+  alert( "That's right! The largest number is " + LargestNumber + "in " + RandomArray );
+}
+else { 
+  alert( "Sorry, The largest number is " + LargestNumber + ". It's first seen at position " + LargestIndex + "." );
+  alert( RandomArray );
+};
 
 // Exercise 2.3.3 - Modify your code from exercise 2.2.3 to allow the user to replay.
 // Add a scoreboard array to keep track of how many guesses it took them to win.
 // Show the user the scoreboard each time and congratulate them if they beat their best.
+alert( "Exercise 2.3.3 Multiple Guesses and Multiple Games" );
+var ArraySize = 10;
+var Guesses = 0;
+var Scoreboard = [];
+var GamesPlayed = 0;
+var KeepPlaying = "Y";
+var LimitOfPatience = 3;
+
+while ( KeepPlaying == "Y" || KeepPlaying == "y" ) {
+  GamesPlayed++;
+// fill up the array and find the largest number
+  for( i=0; i<=ArraySize-1; i++ ) {
+    RandomArray[ i ] = Math.floor( 1 + Math.random()*ArraySize );
+    if ( RandomArray[ i ] > LargestNumber ) {
+      LargestNumber = RandomArray[ i ];
+      LargestIndex = i;
+    };
+  };
+
+  //Have the user guess repeatedly but only up to the size of the array
+  Guesses = 0;
+  for ( i=1; i<=ArraySize; i++ ) {
+    Guesses++;
+    UserIndex = prompt( "What's the index of the largest number in this array?", "Your Number From 0  to 9 Here" );
+    //There may be duplicates of the largest number, so can't just compare the locations
+    if( RandomArray[ UserIndex ] == LargestNumber ) {
+      alert( "That's right! The largest number is " + LargestNumber + " in " + RandomArray );
+      break;
+    }
+    else { 
+      if ( i < ArraySize ) { prompt( "Sorry, Try Again!", "Any Key to Continue" ); };
+    };
+  };
+  //Record what happened and respond to user
+  Scoreboard[ GamesPlayed - 1 ] = Guesses;
+  alert( "You guessed in " + Guesses + " . Your Scoreboard is [ " + Scoreboard + " ]" );
+  if (( GamesPlayed > 1 ) && ( Scoreboard[ GamesPlayed -1 ] < Scoreboard[ GamesPlayed-2 ])) {
+    alert( "Congratulations! You beat your last score!" );
+  };
+
+  if ( LimitOfPatience == GamesPlayed ) {
+    alert( "Going on break!  Done for now." );
+    break;
+  } else  { KeepPlaying = prompt( "Want to keep playing?", "Y or N?" );};
+};

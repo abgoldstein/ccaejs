@@ -125,6 +125,7 @@ for (i=0; i<10;i++){
 }
 
 alert(arrRandom.join('\n'));
+//alert( $.toJSON(arrRandom) );
 
 var myAnswer = prompt("Enter the 0-based index of the largest value?");
 if (myAnswer == bigIndex)
