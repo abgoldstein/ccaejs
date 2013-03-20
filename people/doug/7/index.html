@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 7.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 7 -->
+    <section class="slide">
+      <h1>Week 7 - Data Structures</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <ul>
+        <li>Thanks for bearing with me last week. New Orleans was great.</li>
+        <li>If you missed it, we were doing CodeAcademy tracks together over Skype
+          <ul>
+            <li><a href="http://www.codecademy.com/courses/javascript-beginner-en-Bthev-mskY8?curriculum_id=506324b3a7dffd00020bf661">Function review</a></li>
+            <li><a href="http://www.codecademy.com/courses/javascript-beginner-en-9Sgpi?curriculum_id=506324b3a7dffd00020bf661">Array review and Object intro</a> (revisiting this today)</li>
+            <li><a href="http://www.codecademy.com/courses/web-beginner-en-bay3D?curriculum_id=50a3fad8c7a770b5fd0007a1">jQuery intro for the adventurous</a></li>
+          </ul>
+        </li>
+        <li>Documentation on <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference">core JavaScript</a></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Any new business?</h2>
+      <ul>
+        <li>Burning questions?</li>
+        <li>Things you've forgotten in two weeks?</li>
+        <li>We're in our final month; anything you really want between now and the end?</li>
+      </ul>
+    </section>
+
+
+    <!-- Data Structures -->
+    <section class="slide">
+      <h2>Multidimensional arrays</h2>
+      <ul>
+        <li>Exactly like every other language. We're nesting arrays inside other arrays.</li>
+        <li>They don't come up extremely frequently (in my experience). Often there's more a combination of nested Objects within Arrays.</li>
+      </ul>
+
+<pre class="prettyprint linenums">
+// 1-dimensional list of all names in the class
+var names = ["Doug", "David", "Cassandra", "Shelby", "Emily", "Rada", "Sara", "Gretchen"];
+
+// 2-dimensional list of names in the class by row where people sit.
+var namesByRow = [
+  ["Doug", "David"],
+  ["Cassandra", "Shelby", "Emily"],
+  ["Rada", "Sara", "Gretchen"]
+];
+</pre>
+    </section>
+
+
+    <!-- Objects -->
+    <section class="slide">
+      <h2>Objects</h2>
+      <ul>
+        <li>If you are familiar with OOP, objects will feel comfortable.</li>
+        <li>JavaScript objects are prototypical. We'll visit that next week.</li>
+        <li>The short version: Objects are a collection of related data and functions.</li>
+      </ul>
+
+<pre class="prettyprint linenums">
+// An example of a car object
+var car = {
+  make: "Honda",
+  model: "Accord",
+  year: 2003,
+  drive: function() {
+    // Vroom.
+  }
+};
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Creation and access</h2>
+      <ul>
+        <li>There are two ways to create Objects:
+          <ul>
+            <li>Object literal notation, <code>var object = {};</code></li>
+            <li>Object constructor, <code>var object = new Object();</code></li>
+            <li>In my experience, object literal notation is more common and preferred.</li>
+          </ul>
+        </li>
+        <li>There are two ways to access or modify members of the object:
+          <ul>
+            <li>Dot notation, object.member</li>
+            <li>Square bracket notation, object[member]</li>
+            <li>Dot notation is syntactic sugar for square bracket notation. At its heart, Objects are syntactic sugar of Arrays. Remember that comment early on about "associative arrays"?</li>
+            <li>In my experience, dot notation is more common and preferred.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>A bit more code</h2>
+
+<pre class="prettyprint linenums">
+// An example of a car object
+var car = {
+  make: "Honda",
+  model: "Accord",
+  year: 2003,
+  brag: function() {
+    alert("Hello, I am a " + this.make + " " + this.model);
+  },
+  pullOver: function() {
+    if (this.registration) {
+      alert("Here you are officer..." + this.registration);
+    } else {
+      // uh oh
+    }
+  }
+};
+
+// Let's use the car
+car.drive();
+car.pullOver(); // What happens?
+</pre>
+    </section>
+
+
+    <!-- Exercises -->
+    <section class="slide">
+      <h2>Go forth and solve</h2>
+      <ul>
+        <li>Start with CodeAcademy. Run through the <a href="http://www.codecademy.com/courses/javascript-beginner-en-9Sgpi?curriculum_id=506324b3a7dffd00020bf661">data structure track</a>. It will visit what we just talked about.</li>
+        <li>Once you're done, continue on to exercises from me in Week 7.</li>
+      </ul>
+    </section>
+
+
+    <!-- So long! -->
+    <section class="slide">
+      <h2>Thanks!</h2>
+      <ul>
+        <li>Next time:
+          <ul>
+            <li>Objects continued</li>
+            <li>Prototypial Inheritance</li>
+          </ul>
+        <li>See you next week!</li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
