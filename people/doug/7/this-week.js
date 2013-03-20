@@ -127,7 +127,7 @@ doug.relatives = [myWife, mySon, myDaughter];
 console.log("length of relatives is " + doug.relatives.length);
 for (i=0; i<doug.relatives.length; i++){
 	console.log("relative is " + doug.relatives[i].firstName);
-	//doug.relatives[i].getCalled();
+	doug.relatives[i].getCalled();
 }
 
 for (i=0; i<doug.pets.length; i++){
