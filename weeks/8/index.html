@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 8.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 8 -->
+    <section class="slide">
+      <h1>Week 8 - Objects Continued</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <ul>
+        <li>Last week we had an introduction to Objects</li>
+        <li>If you missed it, you can review with this <a href="http://www.codecademy.com/courses/javascript-beginner-en-9Sgpi?curriculum_id=506324b3a7dffd00020bf661">CodeAcademy track</a></li>
+        <li>Today we're going to continue looking at 
+      </ul>
+    </section>
+
+
+    <!-- Objects Continued -->
+    <section class="slide">
+      <h2>Last time we saw this</h2>
+<pre class="prettyprint linenums">
+// A dog object
+var dog = {
+  species: "dog",
+  name: "Murphy",
+  age: 14,
+  houseBroken: true
+};
+</pre>
+
+      <ul>
+        <li>What if we want another dog?</li>
+    </section>
+
+    <section class="slide">
+      <h2>We can make a class</h2>
+
+<pre class="prettyprint linenums">
+// A Dog constructor
+function Dog(species, name, age, houseBroken) {
+  this.species = species;
+  this.name = name;
+  this.age = age;
+  this.houseBroken = houseBroken;
+}
+
+var secondDog = new Dog("terrier", "Ralph the Dog", 7, false);
+</pre>
+
+    <ul>
+      <li>Dog is no longer a one-off</li>
+    </ul>
+    </section>
+
+    <section class="slide">
+      <h2>We can even add functions</h2>
+
+<pre class="prettyprint linenums">
+// A Dog constructor
+function Dog(species, name, age, houseBroken) {
+  this.species = species;
+  this.name = name;
+  this.age = age;
+  this.houseBroken = houseBroken;
+
+  this.greetNewPeople = function() {
+    slobber();
+  }
+}
+
+// What's the difference here?
+Dog.prototype.fetchThePaper = function() {
+  alert("Stop being so lazy and get it yourself...Bark!");
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Prototypes</h2>
+
+      <ul>
+        <li>In JavaScript, Objects have a "parent class" called the Prototype. It is the cookie cutter from which all future Objects are made.</li>
+        <li>By default, the parent of an Object is just {}, an Object</li>
+        <li>Just like looking for variables in scope, Objects will look "up" to find a property or function that was defined previously. This is called the prototype chain</li>
+        <li>The prototype chain of our Dog class
+          <ul>
+            <li>Dog</li>
+            <li>Object.prototype</li>
+            <li>null</li>
+          </ul>
+        </li>
+        <li>If you're adding a function to a class, best to add it via the prototype. Otherwise, it will be redefined every time for every instantiation</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>This is a tough concept</h2>
+
+      <ul>
+        <li>Grasping prototypical inheritance is a huge barrier to entry for many programmers</li>
+        <li>Once you've got this, along with scope, closures and anonymous functions (all of which we've previously visited), you've basically seen it all</li>
+        <li>You'll also get a chance to see this again in CodeAcademy</li>
+        <li>So bear with me and think through this hard. Play through any questions you have by writing code.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Inheritance</h2>
+
+      <ul>
+        <li>Prototypes and constructors are mutable</li>
+        <li>Meaning, we can set the prototype of one class to be the constructor of another
+          <ul>
+            <li><code>Dog.prototype = new Mammal();</code></li>
+            <li>Now Dog inherits from the Mammal class</li>
+          </ul>
+        </li>
+      </ul>
+
+<pre class="prettyprint linenums">
+
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Object utilities: typeof</h2>
+
+<pre class="prettyprint linenums">
+// Finding the type of values
+typeof 10; // Number
+typeof "Hello!"; // String
+typeof {}; // Object
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Object utilities: hasOwnProperty</h2>
+
+<pre class="prettyprint linenums">
+// Checking if an object has a given field
+var dog = {
+  species: "dog",
+  name: "Murphy",
+  age: 14,
+  houseBroken: true
+};
+
+dog.hasOwnProperty("favoriteGame") // false
+dog.favoriteGame // undefined
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Object utilities: for-in loops</h2>
+
+<pre class="prettyprint linenums">
+// Loop over properties of an object
+var dog = {
+  species: "dog",
+  name: "Murphy",
+  age: 14,
+  houseBroken: true
+};
+
+for (var properties in dog)
+  // "species", "name", "age", "houseBroken"
+</pre>
+    </section>
+
+
+    <!-- Exercises -->
+    <section class="slide">
+      <h2>Go forth and solve</h2>
+      <ul>
+        <li>Start with CodeAcademy. We're going to start with the <a href="http://www.codecademy.com/courses/objects-ii?curriculum_id=506324b3a7dffd00020bf661">Objects II track</a>. This will revisit the concept of prototypical inheritance and Object Oriented Programming in JavaScript.</li>
+        <li>Once you're done, try the associated <a href="http://www.codecademy.com/courses/building-an-address-book?curriculum_id=506324b3a7dffd00020bf661">address book project</a></li>
+        <li>And then tackle the exercises from me in Week 8.</li>
+      </ul>
+    </section>
+
+
+    <!-- So long! -->
+    <section class="slide">
+      <h2>Thanks!</h2>
+      <ul>
+        <li>Next time:
+          <ul>
+            <li>AJAX</li>
+            <li>Using AJAX to construct Objects with data we want</li>
+          </ul>
+        </li>
+        <li>See you next week!</li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
