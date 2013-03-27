@@ -81,7 +81,7 @@ var myDog = {
 		name: "Snickers",
 		age: 7,
 		housebroken: true,
-		getCalled : petGetCalled()
+		getCalled : petGetCalled
 };
 document.writeln("My dog is " + myDog.name);
 
@@ -90,7 +90,7 @@ var myPony = {
 		name: "Trigger",
 		age: 2,
 		housebroken: false,
-		getCalled : petGetCalled()
+		getCalled : petGetCalled
 };
 
 doug.pets = [myDog, myPony];
@@ -105,19 +105,19 @@ var myWife = {
 		firstName: "Debbie",
 		lastName: "Fleming",
 		relationship: "wife",
-		getCalled : relativeGetCalled()
+		getCalled : relativeGetCalled
 }
 var mySon = {
 		firstName: "Greg",
 		lastName: "Fleming",
 		relationship: "son",
-		getCalled : relativeGetCalled()
+		getCalled : relativeGetCalled
 }
 var myDaughter = {
 		firstName: "Allison",
 		lastName: "Fleming",
 		relationship: "daughter",
-		getCalled : relativeGetCalled()
+		getCalled : relativeGetCalled
 }
 doug.relatives = [myWife, mySon, myDaughter];
 
