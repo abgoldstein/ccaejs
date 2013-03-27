@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 9</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 9.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 9 -->
+    <section class="slide">
+      <h1>Week 9 - AJAX</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <ul>
+        <li>Today we're going to revisit the concept of Prototypes briefly</li>
+        <li>We'll get a start on AJAX. Today we'll talk about:
+          <ul>
+            <li>HTTP requests in general</li>
+            <li>Making HTTP requests in JavaScript</li>
+            <li>JSON</li>
+            <li>Extra reading</li>
+          </ul>
+      </ul>
+    </section>
+
+    <!-- Back to Prototype -->
+    <section class="slide">
+      <h2>Objects, Prototype, and OOP</h2>
+      <ul>
+        <li>Here's some more reading:
+          <ul>
+            <li><a href="http://javascriptissexy.com/javascript-objects-in-detail/">Objects</a></li>
+            <li><a href="http://javascriptissexy.com/javascript-prototype-in-plain-detailed-language/">Prototype</a></li>
+            <li><a href="http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/">OOP in JavaScript</a></li>
+            <li><a href="https://speakerdeck.com/anguscroll/parlez-vous-javascript">Wrapping it all together</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+
+    <!-- HTTP Requests -->
+    <section class="slide">
+      <h2>HTTP requests</h2>
+      <ul>
+        <li>You can <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">read more</a> about it in general.</li>
+        <li>The short version is: people decided on a standard way to ask for things on the internet.</li>
+        <li>The rules go basically like this
+          <ul>
+            <li>You ask request something of a server from a limited set of commands
+              <ul>
+                <li>Note: We are leaving a lot of the how out of the picture, e.g. DNS, server details, etc. That's out of scope here so we're just assuming you can and have reached the server</li>
+              </ul>
+            </li>
+            <li>The server will respond with three things:
+              <ul>
+                <li>A result. Did we succeed? If not, why not?</li>
+                <li>Metadata. What is being returned to you.</li>
+                <li>The body. The actual data to answer your original request</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>An HTTP request</h2>
+      <ul>
+        <li>The vocabulary is slightly larger than this, but here are the commands we care about for now:
+          <ul>
+            <li>GET - Tell me some data</li>
+            <li>POST - Add or update some data</li>
+            <li>PUT - Add or update some data</li>
+            <li>DELETE - Delete some data</li>
+          </ul>
+        </li>
+        <li>For example: http://www.abgoldstein.com/users/1/delete</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>POST vs PUT</h2>
+      <ul>
+        <li>Short version: don't worry about it</li>
+        <li>Long version: PUTs are guaranteed to be idempotent. POSTs can be. But what does idempotence mean?
+          <ul>
+            <li>Short version: Really, don't worry about it</li>
+            <li>Real version: you are promised that you will get the same result no matter how many times you do something</li>
+          </ul>
+        </li>
+        <li>For now: POST is a hammer and can be used to save data to a server in just about any scenario</li>
+        <li>PUT is more specific and safer and will be the tool you probably will master later</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>The response to an HTTP request</h2>
+      <ul>
+        <li>There is an <a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">extensive list</a> of response codes</li>
+        <li>These are the extraordinarily common ones:
+          <ul>
+            <li>200 - Success</li>
+            <li>404 - Not found</li>
+            <li>500 - Error</li>
+            <li>Honorable mentions:
+              <ul>
+                <li>302 - Found</li>
+                <li>403 - Forbidden</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Making an HTTP request in JavaScript</h2>
+
+<pre class="prettyprint linenums">
+// In modern browsers, without using a library
+var request = new XMLHttpRequest();
+xhr.open("GET", "http://www.abgoldstein.com/", false);
+
+// With jQuery
+$.get("http://www.abgoldstein.com/", function(data) {
+  // This function is executed after the query returns
+});
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>JSON</h2>
+      <ul>
+        <li>Technically the X in AJAX is XML. Technically the Object you use for an HTTP request is XmlHttpRequest</li>
+        <li>We're going to ignore XML for now and just talk about JSON</li>
+        <li>Both are simply structured data that can be sent to you by a server and parsed by you</li>
+        <li>JSON is favored for a few reasons, one being that it's structure exactly mirrors JavaScript Object structure</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>JSON example</h2>
+
+<pre class="prettyprint linenums">
+var json = '{"people": { "name": "Adam", "hobby": "Making slides"}}';
+var parsedJSON = JSON.parse(demo);
+
+alert(parsedJSON.instructors.name); // Adam
+alert(JSON.stringify(parsedJSON)); // Original string
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Go forth and solve!</h2>
+      <ul>
+        <li>Hop into the <a href="http://www.codecademy.com/tracks/youtube">CodeAcademy track</a> for using YouTube's API</li>
+        <li>This will review what we talked about. You can skip to the exercises if you don't need that</li>
+        <li>If you finish early, tackle the <a href="http://www.codecademy.com/courses/close-the-super-makert/0?curriculum_id=506324b3a7dffd00020bf661">Objects II project</a></li>
+      </ul>
+    </section>
+
+
+    <!-- So long! -->
+    <section class="slide">
+      <h2>Thanks!</h2>
+      <ul>
+        <li>Next time:
+          <ul>
+            <li>Just AJAX</li>
+            <li>Here's some <a href="https://developer.mozilla.org/en-US/docs/AJAX">extra reading</a> for next time, if you're interested</li>
+          </ul>
+        </li>
+        <li>See you next week for the last session!</li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
