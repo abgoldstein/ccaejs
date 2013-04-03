@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Week 10</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A self contained curriculum and class project for the Cambridge Center for Adult Education's JavaScript class. Week 10.">
+    <meta name="author" content="Adam B. Goldstein">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/deck.core.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/style/web-2.0.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/themes/transition/horizontal-slide.css">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.goto.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.menu.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.navigation.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.status.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.hash.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/deckjs/extensions/deck.scale.css">
+
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="../../assets/javascripts/jquery/jquery.min.js"></script>
+    <script src="../../assets/javascripts/deckjs/modernizr.custom.js"></script>
+
+    <script src="../../assets/javascripts/deckjs/deck.core.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.hash.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.menu.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.goto.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.status.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.navigation.js"></script>
+    <script src="../../assets/javascripts/deckjs/deck.scale.js"></script>
+    <script>
+      $(function() {
+        $.deck('.slide');
+      });
+
+      $(document).ready(function() {
+        prettyPrint();
+      });
+    </script>
+
+    <!-- Standard HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  </head>
+  <body class="deck-container">
+    <!-- Week 10 -->
+    <section class="slide">
+      <h1>Week 10 - Wrappin' it up</h1>
+    </section>
+
+    <!-- Hello again -->
+    <section class="slide">
+      <h2>Welcome back!</h2>
+      <ul>
+        <li>Today we're going to try a small example using AJAX</li>
+        <li>We'll review what we've learned in the course</li>
+        <li>Talk about some next steps for you all</li>
+        <li>Talk about some next steps for me</li>
+      </ul>
+    </section>
+
+
+    <!-- AJAX -->
+    <section class="slide">
+      <h2>Back to AJAX</h2>
+      <ul>
+        <li>Let's dive back into the YouTube API track on <a href="http://www.codecademy.com/tracks/youtube">CodeAcademy</a></li>
+      </ul>
+    </section>
+
+    <!-- Review -->
+    <section class="slide">
+      <h2>So. Did we learn anything?</h2>
+      <ul>
+        <li>Hopefully!</li>
+        <li>Let's walk back through the big topics</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Basics</h2>
+<pre class="prettyprint linenums">
+for (var i = 0; i < 10; i++) {
+  if (i % 2) {
+    consoloe.log(i + " is divisible by 2");
+  } else if (i == 9) {
+    console.log("Almost to 10...!");
+  } else {
+    // Do nothing!
+  }
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Functions</h2>
+<pre class="prettyprint linenums">
+function pourCoffee(source, target, callback) {
+  source.pour(target);
+  callback(target);
+}
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Function expressions vs declarations</h2>
+      <ul>
+        <li>Short version - Declarations must have a name, expressions may</li>
+        <li>Here's a <a href="http://kangax.github.com/nfe/">longer discussion</a></li>
+      </ul>
+<pre class="prettyprint linenums">
+if (true) {
+  function foo() {
+    return 'first';
+  }
+}
+else {
+  function foo() {
+    return 'second';
+  }
+}
+foo();
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Data Structures</h2>
+<pre class="prettyprint linenums">
+var list = [1, 2, 3, "a", "b", "c"];
+list.push("lastElement");
+console.log("The last element is " + list[list.length - 1]);
+
+var favoriteColors = {
+  adam: "red",
+  meghan: "blue",
+  murphy: "grey"
+}
+console.log("My dog's favorite color is " + favoriteColors["murphy"] + ", maybe?");
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>Objects</h2>
+<pre class="prettyprint linenums">
+function Dog(species, name, age, houseBroken) {
+  this.species = species;
+  this.name = name;
+  this.age = age;
+  this.houseBroken = houseBroken;
+}
+Dog.prototype.runEndlesslyInCircles = function() {
+  while(true) { run(); }
+}
+
+var doggyDog = new Dog("Corgi", "Cory", 1, false);
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>AJAX</h2>
+<pre class="prettyprint linenums">
+$.get("http://www.abgoldstein.com/", function(data) {
+  // This function is executed after the query finishes
+});
+</pre>
+    </section>
+
+    <section class="slide">
+      <h2>git</h2>
+      <ul>
+        <li>Fork</li>
+        <li>Clone</li>
+        <li>Add and commit files</li>
+        <li>Push and pull commits</li>
+      </ul>
+    </section>
+
+    <!-- Next steps for you -->
+    <section class="slide">
+      <h2>Next steps for you - JavaScript</h2>
+      <ul>
+        <li>Folks to follow
+          <ul>
+            <li><a href="http://javascriptweblog.wordpress.com/">Angus Croll</a></li>
+            <li><a href="http://paulirish.com/">Paul Irish</a></li>
+            <li><a href="http://helephant.com/category/web-development/javascript-webdev/">hElephant</a> (Thanks, Sara!)</li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/JavaScript">Mozilla Documentation</a></li>
+          </ul>
+        </li>
+        <li>Technologies to look into
+          <ul>
+            <li><a href="http://www.codecademy.com/tracks/jquery">jQuery on CodeAcademy</a></li>
+            <li><a href="http://backbonejs.org/">backbone.js</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Next steps for you - HTML</h2>
+      <ul>
+        <li>Folks to follow
+          <ul>
+            <li><a href="http://nimbupani.com/">Divya Manian</a></li>
+          </ul>
+        </li>
+        <li>Technologies to look into
+          <ul>
+            <li><a href="http://html5boilerplate.com/">HTML 5 Boiler Plate</a></li>
+            <li>Try starting with <a href="http://www.codecademy.com/tracks/web">CodeAcademy</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Next steps for you - CSS</h2>
+      <ul>
+        <li>Folks to follow
+          <ul>
+            <li><a href="http://chriscoyier.net/contact/">Chris Coyier</a></li>
+          </ul>
+        </li>
+        <li>Technologies to look into
+          <ul>
+            <li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Next steps for you - git</h2>
+      <ul>
+        <li><a href="http://refcardz.dzone.com/refcardz/getting-started-git">Cheatsheet</a> (Thanks, Doug!)</li>
+        <li><a href="http://try.github.com/">try.github.com</a></li>
+        <li>Maybe try contributing to a project on GitHub</li>
+      </ul>
+    </section>
+
+
+    <!-- Next steps for me -->
+    <section class="slide">
+      <h2>Next steps for me</h2>
+      <ul>
+        <li>What went well?
+          <ul>
+            <li>CodeAcademy and blank slate exercise combo was pretty ok.</li>
+            <li>Making slides available through the site with JS worked</li>
+          </ul>
+        </li>
+        <li>What didn't go well
+          <ul>
+            <li>git. Should have not done it or at least waited on it.</li>
+            <li>Should have had more JavaScript interacting with elements on page.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- So long! -->
+    <section class="slide">
+      <h2>Thank you very much!</h2>
+      <ul>
+        <li>This has been a lot of fun! Good luck!</li>
+      </ul>
+    </section>
+
+
+    <!-- Extensions -->
+    <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+    <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+    <p class="deck-status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+  </body>
+</html>
